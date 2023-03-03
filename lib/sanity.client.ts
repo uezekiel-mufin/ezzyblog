@@ -5,8 +5,8 @@ export const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET;
 const apiVersion = process.env.NEXT_PUBLIC_SANITY_API_VERSION;
 
 export const client = createClient({
-	projectId,
-	dataset,
-	apiVersion,
+	projectId: 'a891wky7',
+	dataset: 'production',
+	apiVersion: '2022-11-15',
 	useCdn: false,
 });
