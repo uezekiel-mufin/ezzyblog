@@ -2,10 +2,8 @@
 
 import { usePreview } from '@/lib/sanity.preview';
 import React from 'react';
-import BlogList from './BlogList';
+import BlogList from './BlogLists';
 
-export const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID;
-export const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET;
 type Props = {
 	query: string;
 };

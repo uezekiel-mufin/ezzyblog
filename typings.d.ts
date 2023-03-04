@@ -11,6 +11,8 @@ interface Post extends Base {
 	slug: Slug;
 	title: string;
 	description: string;
+	_id: string;
+	_createdAt: string;
 }
 
 interface Author extends Base {

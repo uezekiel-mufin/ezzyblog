@@ -4,7 +4,7 @@ import { groq } from 'next-sanity';
 import { client } from '@/lib/sanity.client';
 import PreviewSuspense from '../../components/PreviewSuspense';
 import PreviewBloglist from '@/components/PreviewBloglist';
-import BlogList from '@/components/BlogList';
+import BlogList from '@/components/BlogLists';
 
 const query = groq`
 *[_type=='post']{
@@ -31,7 +31,7 @@ const HomePage = async () => {
 	}
 
 	const posts = await client.fetch(query);
-	console.log(posts);
+
 	return (
 		<div className='text-5xl'>
 			<BlogList posts={posts} />
