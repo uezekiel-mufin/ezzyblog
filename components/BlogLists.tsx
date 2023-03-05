@@ -6,7 +6,6 @@ type Props = {
 	posts: Post[];
 };
 const BlogList = ({ posts }: Props) => {
-	console.log(posts.length);
 	return (
 		<div className=''>
 			<hr className='border-pink-500 mb-10' />

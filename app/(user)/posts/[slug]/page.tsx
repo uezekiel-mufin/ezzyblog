@@ -33,7 +33,6 @@ export async function generateStaticParams() {
 const Post = async ({ params: { slug } }: Props) => {
 	const post: Post = await client.fetch(query, { slug });
 	// console.log(post);
-	console.log(post.categories);
 	return (
 		<article className='px-10 pb-20'>
 			<section className='space-y-2 border border-pink-500 text-white'>

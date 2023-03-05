@@ -3,11 +3,13 @@ import Link from 'next/link';
 import urlFor from '@/lib/urlFor';
 
 export const RichTextComponent = {
-	image: ({ value }: any) => (
-		<div className='relative w-[500px] h-[500px] m-10 mx-auto'>
-			<Image src={urlFor(value).url()} alt='blog post image' fill />
-		</div>
-	),
+	types: {
+		image: ({ value }: any) => (
+			<div className='relative w-[500px] h-[500px] m-10 mx-auto'>
+				<Image src={urlFor(value).url()} alt='blog post image' fill />
+			</div>
+		),
+	},
 	list: {
 		bullet: ({ children }: any) => (
 			<ul className='ml-10 py-5 list-disc space-y-5'>{children}</ul>

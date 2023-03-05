@@ -7,7 +7,6 @@ type Props = {
 	post: Post;
 };
 const BlogPost = ({ post }: Props) => {
-	console.log(post);
 	return (
 		<div key={post._id}>
 			<div className='relative w-full h-80 drop-shadow-xl hover:scale-105 transition-transform duration-200'>
