@@ -1,3 +1,4 @@
+import Header from '@/components/Header/Header';
 import '../../styles/globals.css';
 
 export const metadata = {
@@ -12,7 +13,10 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang='en'>
-			<body className='max-w-7xl mx-auto'>{children}</body>
+			<body className=' mx-auto'>
+				<Header />
+				{children}
+			</body>
 		</html>
 	);
 }
