@@ -1,4 +1,5 @@
 import React from 'react';
+import ClientRoute from '../ClientRoute';
 import RecentPost from './RecentPost';
 
 type Props = {
@@ -9,7 +10,9 @@ const RecentPosts = ({ posts }: Props) => {
 		<div>
 			<div className='grid gap-4'>
 				{posts.map((post) => (
-					<RecentPost key={post._id} post={post} />
+					<ClientRoute key={post._id} route={`posts/${post.slug.current}`}>
+						<RecentPost key={post._id} post={post} />
+					</ClientRoute>
 				))}
 			</div>
 		</div>

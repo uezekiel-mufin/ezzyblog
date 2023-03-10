@@ -10,8 +10,8 @@ const RandomPost = ({ post }: Props) => {
 	console.log(post);
 	return (
 		<div key={post._id}>
-			<div className='grid grid-cols-2 w-full drop-shadow-xl hover:scale-105 transition-transform duration-200'>
-				<div className='relative block'>
+			<div className='grid grid-cols-1 md:grid-cols-2 gap-3 w-full drop-shadow-xl hover:scale-105 transition-transform duration-200'>
+				<div className='relative block h-[350px] md:h-full md:w-full'>
 					<Image
 						className='object-cover object-left lg:object-center'
 						src={urlFor(post.mainImage).url()}
@@ -19,12 +19,14 @@ const RandomPost = ({ post }: Props) => {
 						fill
 					/>
 				</div>
-				<div className='pl-5 flex justify-center gap-2 flex-col'>
+				<div className=' flex justify-center gap-2 flex-col'>
 					<p className='text-gray-500 rounded-full text-sm font-semibold'>
 						{post?.categories[0].title}
 					</p>
 
-					<p className=' text-[#121212] font-semibold text-xl'>{post.title}</p>
+					<p className=' text-[#121212] font-semibold text-xl line-clamp-2'>
+						{post.title}
+					</p>
 					<h3 className='text-orange-400'>
 						<span className='text-[#121212]'>By </span>
 						{post.author.name}
