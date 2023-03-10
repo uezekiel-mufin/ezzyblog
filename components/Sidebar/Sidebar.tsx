@@ -8,7 +8,7 @@ type Props = {
 };
 const Sidebar = ({ posts }: Props) => {
 	return (
-		<div className='h-screen'>
+		<div className='h-full'>
 			<section className='space-y-16'>
 				<section>
 					<h2 className='text-2xl font-semibold border-b border-gray-400 pb-3 mb-6'>

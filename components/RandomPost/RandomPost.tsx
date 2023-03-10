@@ -7,9 +7,10 @@ type Props = {
 	post: Post;
 };
 const RandomPost = ({ post }: Props) => {
+	console.log(post);
 	return (
 		<div key={post._id}>
-			<div className='grid grid-cols-2 w-full h-40 drop-shadow-xl hover:scale-105 transition-transform duration-200'>
+			<div className='grid grid-cols-2 w-full drop-shadow-xl hover:scale-105 transition-transform duration-200'>
 				<div className='relative block'>
 					<Image
 						className='object-cover object-left lg:object-center'
@@ -18,16 +19,24 @@ const RandomPost = ({ post }: Props) => {
 						fill
 					/>
 				</div>
-				<div className=' w-full bg-opacity-20 rounded drop-shadow-lg text-white p-5 flex justify-between'>
-					<div className='flex flex-col md:flex-row gap-y-2 md:gap-x-2 items-center'>
-						{post?.categories?.map((category, index) => (
-							<div
-								key={index}
-								className='bg-pink-500 text-center text-black px-3 py-1 rounded-full text-sm font-semibold'>
-								<p>{category.title}</p>
-							</div>
-						))}
-					</div>
+				<div className='pl-5 flex justify-center gap-2 flex-col'>
+					<p className='text-gray-500 rounded-full text-sm font-semibold'>
+						{post?.categories[0].title}
+					</p>
+
+					<p className=' text-[#121212] font-semibold text-xl'>{post.title}</p>
+					<h3 className='text-orange-400'>
+						<span className='text-[#121212]'>By </span>
+						{post.author.name}
+					</h3>
+					<span className='text-[#666] italic'>
+						{' '}
+						{new Date(post._createdAt).toLocaleDateString('en-US', {
+							day: 'numeric',
+							month: 'long',
+							year: 'numeric',
+						})}
+					</span>
 				</div>
 			</div>
 		</div>
