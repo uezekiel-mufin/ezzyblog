@@ -5,5 +5,6 @@ export const dataset = process.env.NEXT_SANITY_DATASET;
 export default defineCliConfig({
 	api: {
 		projectId: 'a891wky7',
+		dataset: 'production',
 	},
 });
