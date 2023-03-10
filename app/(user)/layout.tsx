@@ -28,10 +28,10 @@ export default async function RootLayout({
 			<body className='mx-auto'>
 				<Header />
 				<main className='grid grid-cols-9 w-full py-10 pb-20 mt-[200px]'>
-					<section className='col-span-6 px-10'>
+					<section className='col-span-6 pl-10'>
 						<section>{children}</section>
 					</section>
-					<section className='col-span-3 px-10 border-l border-solid  border-gray-300'>
+					<section className='col-span-3 px-10 '>
 						<Sidebar posts={posts} />
 					</section>
 				</main>

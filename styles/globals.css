@@ -3,8 +3,13 @@
 @tailwind utilities;
 
 :root {
-	font-size: 15px;
+	font-size: 16px;
 	margin: 0;
 	padding: 0;
 	zoom: 100%;
+	font-family: 'Inter', sans-serif;
+	font-family: 'Karla', sans-serif;
+	font-family: 'Lato', sans-serif;
+	font-family: 'Poppins', sans-serif;
+	font-family: 'Sanchez', serif;
 }

@@ -28,7 +28,7 @@ const BlogPost = ({ post }: Props) => {
 						<p className='text-base'>
 							By <span className='text-orange-500'>{post.author.name}</span>
 						</p>
-						<p className='text-base'>
+						<p className='text-sm'>
 							on{' '}
 							{new Date(post._createdAt).toLocaleDateString('en-US', {
 								day: 'numeric',
@@ -38,7 +38,7 @@ const BlogPost = ({ post }: Props) => {
 						</p>
 					</span>
 					<p className='text-orange-400 rounded-full text-sm font-semibold'>
-						{post?.categories[0].title}
+						{post?.categories[0].title.split(' ')[0]}
 					</p>
 				</div>
 
