@@ -41,7 +41,7 @@ const Categories = () => {
 	console.log(pathname);
 	return (
 		<div className='py-8'>
-			<nav className='flex gap-12 ml-12 text-white pl-20 text-xl'>
+			<nav className='hidden md:flex gap-12 ml-12 text-white pl-20 text-xl'>
 				{categories.map((link) => (
 					<ClientRoute
 						key={link.id}

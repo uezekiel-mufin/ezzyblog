@@ -7,7 +7,7 @@ const Navbar = () => {
 	return (
 		<main className='text-[#56585c] flex justify-between py-6 px-12 pb-10'>
 			<div>Ezzy Blog</div>
-			<div className='flex gap-4 divide-x-2 divide-[#56585c]'>
+			<div className='hidden md:flex gap-4 divide-x-2 divide-[#56585c]'>
 				<nav className='text-[#949598] flex gap-4 text-base '>
 					{links.map((link) => (
 						<Link key={link} href={`/${link}`}>

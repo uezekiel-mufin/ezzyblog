@@ -25,10 +25,13 @@ const BlogPost = ({ post }: Props) => {
 			<div className='mt-3 flex-1'>
 				<div className='flex justify-between mb-3'>
 					<span className='flex gap-3 items-center'>
-						<p className='text-base'>
-							By <span className='text-orange-500'>{post.author.name}</span>
-						</p>
 						<p className='text-sm'>
+							By{' '}
+							<span className='text-orange-500 text-base'>
+								{post.author.name}
+							</span>
+						</p>
+						<p className='text-sm italic'>
 							on{' '}
 							{new Date(post._createdAt).toLocaleDateString('en-US', {
 								day: 'numeric',
