@@ -7,8 +7,8 @@ import ClientRoute from '../ClientRoute';
 const categories = [
 	{
 		id: 1,
-		name: 'Reactjs',
-		link: 'Reactjs',
+		name: 'Home',
+		link: '/',
 	},
 	{
 		id: 2,
@@ -32,8 +32,8 @@ const categories = [
 	},
 	{
 		id: 6,
-		name: 'All Posts',
-		link: 'All-Posts',
+		name: 'Reactjs',
+		link: 'Reactjs',
 	},
 ];
 const Categories = () => {
@@ -43,7 +43,9 @@ const Categories = () => {
 		<div className='py-8'>
 			<nav className='flex gap-12 ml-12 text-white pl-20 text-xl'>
 				{categories.map((link) => (
-					<ClientRoute key={link.id} route={`categories/${link.link}`}>
+					<ClientRoute
+						key={link.id}
+						route={link.name === 'Home' ? '/' : `categories/${link.link}`}>
 						<li
 							className={`list-none ${
 								pathname === `/categories/${link.link}`
