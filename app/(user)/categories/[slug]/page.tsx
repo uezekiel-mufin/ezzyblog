@@ -1,6 +1,11 @@
 import React from 'react';
 
-const Page = ({ params: { slug } }) => {
+type Props = {
+	params: {
+		slug: string;
+	};
+};
+const Page = ({ params: { slug } }: Props) => {
 	console.log(slug);
 	return <div>{slug}</div>;
 };
