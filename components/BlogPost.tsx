@@ -18,33 +18,35 @@ const BlogPost = ({ post }: Props) => {
 				/>
 				<div className='absolute bottom-0 w-full bg-opacity-20 bg-black backdrop-blur-lg rounded drop-shadow-lg text-white p-5 flex justify-between'>
 					<div>
-						<p className='font-bold'>{post.title}</p>
-						<p className=''>
+						<p className='underline text-lg font-bold'>{post.title}</p>
+					</div>
+				</div>
+			</div>
+			<div className='mt-3 flex-1'>
+				<div className='flex justify-between mb-3'>
+					<span className='flex gap-3 items-center'>
+						<p className='text-base'>
+							By <span className='text-orange-500'>{post.author.name}</span>
+						</p>
+						<p className='text-base'>
+							on{' '}
 							{new Date(post._createdAt).toLocaleDateString('en-US', {
 								day: 'numeric',
 								month: 'long',
 								year: 'numeric',
 							})}
 						</p>
-					</div>
-					<div className='flex flex-col md:flex-row gap-y-2 md:gap-x-2 items-center'>
-						{post?.categories?.map((category, index) => (
-							<div
-								key={index}
-								className='bg-pink-500 text-center text-black px-3 py-1 rounded-full text-sm font-semibold'>
-								<p>{category.title}</p>
-							</div>
-						))}
-					</div>
+					</span>
+					<p className='text-orange-400 rounded-full text-sm font-semibold'>
+						{post?.categories[0].title}
+					</p>
 				</div>
-			</div>
-			<div className='mt-5 flex-1'>
-				<p className='underline text-lg font-bold'>{post.title}</p>
+
 				<p className='line-clamp-2 text-gray-500 text-sm'>
 					{post?.description}
 				</p>
 			</div>
-			<p className='mt-5 font-bold flex items-center hover:underline'>
+			<p className='mt-3 font-bold text-xl text-gray-500 flex items-center hover:underline'>
 				Read Post <ArrowRightIcon className='ml-2 h-4 w-4' />
 			</p>
 		</div>
