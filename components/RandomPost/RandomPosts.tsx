@@ -1,4 +1,5 @@
 import React from 'react';
+import ClientRoute from '../ClientRoute';
 import RandomPost from './RandomPost';
 
 type Props = {
@@ -8,7 +9,9 @@ const RandomPosts = ({ posts }: Props) => {
 	return (
 		<div className='grid gap-6'>
 			{posts.map((post) => (
-				<RandomPost key={post._id} post={post} />
+				<ClientRoute key={post._id} route={`posts/${post.slug.current}`}>
+					<RandomPost key={post._id} post={post} />
+				</ClientRoute>
 			))}
 		</div>
 	);

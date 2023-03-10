@@ -11,7 +11,7 @@ const RandomPost = ({ post }: Props) => {
 	return (
 		<div key={post._id}>
 			<div className='grid grid-cols-1 md:grid-cols-2 gap-3 w-full drop-shadow-xl hover:scale-105 transition-transform duration-200'>
-				<div className='relative block h-56 md:h-full w-full'>
+				<div className='relative block h-[350px] md:h-full md:w-full'>
 					<Image
 						className='object-cover object-left lg:object-center'
 						src={urlFor(post.mainImage).url()}

@@ -3,6 +3,7 @@ import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import ClientRoute from '../ClientRoute';
+import { AiOutlineMenuFold } from 'react-icons/ai';
 
 const categories = [
 	{
@@ -36,11 +37,15 @@ const categories = [
 		link: 'Reactjs',
 	},
 ];
-const Categories = () => {
+const Categories = ({ openMenu }) => {
 	const pathname = usePathname();
-	console.log(pathname);
 	return (
-		<div className='py-8'>
+		<div className='py-4 md:py-8'>
+			<span
+				className='flex md:hidden px-4 justify-end'
+				onClick={() => openMenu()}>
+				<AiOutlineMenuFold className='h-10 text-orange-500 w-10' />
+			</span>
 			<nav className='hidden md:flex gap-12 ml-12 text-white pl-20 text-xl'>
 				{categories.map((link) => (
 					<ClientRoute
