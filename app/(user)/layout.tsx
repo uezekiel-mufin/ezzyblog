@@ -3,6 +3,7 @@ import '../../styles/globals.css';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import { groq } from 'next-sanity';
 import { client } from '@/lib/sanity.client';
+import FooterSection from '@/components/Footer/Footer';
 
 export const metadata = {
 	title: 'Ezzy Blog',
@@ -35,6 +36,7 @@ export default async function RootLayout({
 						<Sidebar posts={posts} />
 					</section>
 				</main>
+				<FooterSection />
 			</body>
 		</html>
 	);
