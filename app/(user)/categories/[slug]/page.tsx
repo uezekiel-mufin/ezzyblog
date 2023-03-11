@@ -26,15 +26,14 @@ const Page = async ({ params: { slug } }: Props) => {
 	categories[]->,
   }`;
 	console.log(slug);
-	const results = await client.fetch(query, { slug });
-	console.log(results);
+	const posts = await client.fetch(query, { slug });
 	return (
 		<div className=''>
 			<h2 className='text-2xl capitalize font-semibold border-b border-gray-400 pb-3 mb-6'>
 				{slug}
 			</h2>
 			<div className='grid grid-cols-1 md:grid-cols-2 gap-10 gap-y-16 pb-24 cursor-pointer'>
-				{results.map((post) => (
+				{posts.map((post: Post) => (
 					<ClientRoute key={post._id} route={`posts/${post.slug.current}`}>
 						<CategoryPost post={post} />
 					</ClientRoute>
