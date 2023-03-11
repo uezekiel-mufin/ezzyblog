@@ -5,6 +5,7 @@ import Image from 'next/image';
 import React from 'react';
 import { PortableText } from '@portabletext/react';
 import { RichTextComponent } from '@/components/RichTextComponent';
+import Comments from '@/components/Comments/Comments';
 
 type Props = {
 	params: {
@@ -88,6 +89,7 @@ const Post = async ({ params: { slug } }: Props) => {
 				</div>
 			</section>
 			<PortableText value={post.body} components={RichTextComponent} />
+			<Comments />
 		</article>
 	);
 };
