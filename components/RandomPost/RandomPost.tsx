@@ -7,7 +7,6 @@ type Props = {
 	post: Post;
 };
 const RandomPost = ({ post }: Props) => {
-	console.log(post);
 	return (
 		<div key={post._id}>
 			<div className='grid grid-cols-1 md:grid-cols-2 gap-3 w-full drop-shadow-xl hover:scale-105 transition-transform duration-200'>
