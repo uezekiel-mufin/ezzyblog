@@ -5,11 +5,20 @@ import urlFor from '@/lib/urlFor';
 export const RichTextComponent = {
 	types: {
 		image: ({ value }: any) => (
-			<div className='relative w-[500px] h-[500px] m-10 mx-auto'>
-				<Image src={urlFor(value).url()} alt='blog post image' fill />
+			<div className='relative w-full overflow-auto px-4 sm:px-6 lg:px-8'>
+				<div className='my-8'>
+					<Image
+						src={urlFor(value).url()}
+						alt='blog post image'
+						width={900}
+						height={900}
+						className='rounded-lg'
+					/>
+				</div>
 			</div>
 		),
 	},
+
 	list: {
 		bullet: ({ children }: any) => (
 			<ul className='ml-10 py-5 list-disc space-y-5'>{children}</ul>
@@ -31,9 +40,12 @@ export const RichTextComponent = {
 		h4: ({ children }: any) => (
 			<h4 className='text-2xl py-10 font-bold'>{children}</h4>
 		),
+		p: ({ children }: any) => (
+			<p className='text-2xl py-10 font-bold'>{children} </p>
+		),
 	},
 	blockQuote: ({ children }: any) => (
-		<blockquote className='border-l-pink-500 border-l-4 pl-5 py-5 my-5'>
+		<blockquote className='border-l-pink-500 border-l-4 text-xl pl-5 py-5 my-5'>
 			{children}
 		</blockquote>
 	),
