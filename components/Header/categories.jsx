@@ -14,27 +14,27 @@ const categories = [
 	{
 		id: 2,
 		name: 'Nextjs',
-		link: 'Nextjs',
+		link: 'nextjs',
 	},
 	{
 		id: 3,
 		name: 'JavaScript',
-		link: 'JavaScript',
+		link: 'javascript',
 	},
 	{
 		id: 4,
 		name: 'Programming',
-		link: 'Programming',
+		link: 'programming',
 	},
 	{
 		id: 5,
-		name: 'Tech News',
-		link: 'Tech-News',
+		name: 'Software',
+		link: 'software',
 	},
 	{
 		id: 6,
 		name: 'Reactjs',
-		link: 'Reactjs',
+		link: 'reactjs',
 	},
 ];
 const Categories = ({ openMenu }) => {
@@ -52,7 +52,7 @@ const Categories = ({ openMenu }) => {
 						key={link.id}
 						route={link.name === 'Home' ? '/' : `categories/${link.link}`}>
 						<li
-							className={`list-none ${
+							className={`list-none capitalize ${
 								pathname === `/categories/${link.link}`
 									? 'text-orange-500'
 									: 'text-gray-300'
