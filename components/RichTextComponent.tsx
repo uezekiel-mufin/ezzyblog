@@ -5,7 +5,7 @@ import urlFor from '@/lib/urlFor';
 export const RichTextComponent = {
 	types: {
 		image: ({ value }: any) => (
-			<div className='relative w-full overflow-auto px-4 sm:px-6 lg:px-8'>
+			<div className='relative w-full overflow-auto md:px-4 sm:px-6 lg:px-8'>
 				<div className='my-8'>
 					<Image
 						src={urlFor(value).url()}

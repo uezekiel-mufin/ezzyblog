@@ -33,8 +33,8 @@ export async function generateStaticParams() {
 const Post = async ({ params: { slug } }: Props) => {
 	const post: Post = await client.fetch(query, { slug });
 	return (
-		<article className='px-4 w-full pb-20 overflow-auto'>
-			<section className='space-y-2 border border-pink-500 text-white'>
+		<article className=' w-full pb-20 overflow-auto'>
+			<section className='space-y-2 border border-pink-500 mb-8 text-white'>
 				<div className='relative min-h-56 flex flex-col md:flex-row justify-between'>
 					<div className='absolute top-0 w-full h-full opacity-10 blur-sm p-10'>
 						<Image
@@ -51,7 +51,7 @@ const Post = async ({ params: { slug } }: Props) => {
 							</div>
 						</div>
 						<p className='italic pt-10'>{post.description}</p>
-						<div className='flex justify-between mt-4'>
+						<div className='flex flex-col md:flex-row justify-between mt-4'>
 							<div className='flex flex-1 w-full items-center space-x-2'>
 								<div>
 									<Image
@@ -63,7 +63,7 @@ const Post = async ({ params: { slug } }: Props) => {
 									/>
 								</div>
 								<div className=' flex'>
-									<h3 className='flex gap-2'>
+									<h3 className='flex flex-col md:flex-row '>
 										By {post.author.name}{' '}
 										<p className='flex flex-1 italic gap-2'>
 											on
@@ -79,13 +79,9 @@ const Post = async ({ params: { slug } }: Props) => {
 								</div>
 							</div>
 							<div className='flex items-center justify-end space-x-2'>
-								{post.categories.map((category) => (
-									<p
-										key={category._id}
-										className='bg-gray-800 text-white px-3 py-1 rounded-full text-sm font-semibold'>
-										{category.title}
-									</p>
-								))}
+								<p className='bg-gray-800 text-white px-3 py-1 rounded-full text-sm font-semibold'>
+									{post.categories[0].title}
+								</p>
 							</div>
 						</div>
 					</section>
