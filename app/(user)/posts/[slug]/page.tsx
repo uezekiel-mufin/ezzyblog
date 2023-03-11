@@ -33,7 +33,7 @@ export async function generateStaticParams() {
 const Post = async ({ params: { slug } }: Props) => {
 	const post: Post = await client.fetch(query, { slug });
 	return (
-		<article className='px-4 w-full pb-20'>
+		<article className='px-4 w-full pb-20 overflow-auto'>
 			<section className='space-y-2 border border-pink-500 text-white'>
 				<div className='relative min-h-56 flex flex-col md:flex-row justify-between'>
 					<div className='absolute top-0 w-full h-full opacity-10 blur-sm p-10'>
@@ -44,34 +44,40 @@ const Post = async ({ params: { slug } }: Props) => {
 							fill
 						/>
 					</div>
-					<section className='p-5 bg-pink-500 w-full'>
+					<section className='p-5 bg-orange-500 w-full'>
 						<div className='flex flex-col md:flex-row justify-between gap-y-5'>
 							<div>
 								<h1 className='text-4xl font-extrabold'>{post.title}</h1>
-								<p>
-									{new Date(post._createdAt).toLocaleDateString('en-US', {
-										day: 'numeric',
-										year: 'numeric',
-										month: 'long',
-									})}
-								</p>
-							</div>
-							<div className='flex items-center space-x-2'>
-								<Image
-									className='rounded-full'
-									src={urlFor(post.author.image).url()}
-									alt={post.author.name}
-									height={40}
-									width={40}
-								/>
-								<div className='w-64'>
-									<h3>{post.author.name}</h3>
-									{/* <h3>{post.bio}</h3> */}
-								</div>
 							</div>
 						</div>
-						<div>
-							<h2 className='italic pt-10'>{post.description}</h2>
+						<p className='italic pt-10'>{post.description}</p>
+						<div className='flex justify-between mt-4'>
+							<div className='flex flex-1 w-full items-center space-x-2'>
+								<div>
+									<Image
+										className='rounded-full'
+										src={urlFor(post.author.image).url()}
+										alt={post.author.name}
+										height={50}
+										width={50}
+									/>
+								</div>
+								<div className=' flex'>
+									<h3 className='flex gap-2'>
+										By {post.author.name}{' '}
+										<p className='flex flex-1 italic gap-2'>
+											on
+											<span>
+												{new Date(post._createdAt).toLocaleDateString('en-US', {
+													day: 'numeric',
+													year: 'numeric',
+													month: 'long',
+												})}
+											</span>
+										</p>
+									</h3>
+								</div>
+							</div>
 							<div className='flex items-center justify-end space-x-2'>
 								{post.categories.map((category) => (
 									<p
