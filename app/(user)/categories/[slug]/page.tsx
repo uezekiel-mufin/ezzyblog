@@ -1,9 +1,6 @@
 import { groq } from 'next-sanity';
-import React from 'react';
 import { client } from '@/lib/sanity.client';
-import CategoriesList from '@/components/CategoryPost';
 import ClientRoute from '@/components/ClientRoute';
-
 import CategoryPost from '@/components/CategoryPost';
 
 type Props = {
@@ -25,18 +22,30 @@ const Page = async ({ params: { slug } }: Props) => {
    author->,
 	categories[]->,
   }`;
-	console.log(slug);
 	const posts = await client.fetch(query, { slug });
+
 	return (
 		<div className=''>
 			<h2 className='text-2xl capitalize font-semibold border-b border-gray-400 pb-3 mb-6'>
 				{slug}
 			</h2>
-			<div className='grid grid-cols-1 md:grid-cols-2 gap-10 gap-y-16 pb-24 cursor-pointer'>
-				{posts.map((post: Post) => (
-					<ClientRoute key={post._id} route={`posts/${post.slug.current}`}>
-						<CategoryPost post={post} />
-					</ClientRoute>
+			{posts.length < 1 && (
+				<h2 className='text-2xl'>
+					There are no articles for{' '}
+					<span className='text-2xl capitalize'>{slug}</span> category
+				</h2>
+			)}
+			<div className='grid grid-cols-1  md:grid-cols-2 gap-10 gap-y-16 pb-24 cursor-pointer'>
+				{posts.map((post: Post, index: number) => (
+					<section
+						key={post._id}
+						className={`shadow-lg p-3 ${
+							index % 3 === 0 && 'col-start-1 col-end-3'
+						}`}>
+						<ClientRoute key={post._id} route={`posts/${post.slug.current}`}>
+							<CategoryPost post={post} />
+						</ClientRoute>
+					</section>
 				))}
 			</div>
 		</div>

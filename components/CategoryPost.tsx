@@ -8,7 +8,7 @@ type Props = {
 };
 const CategoryPost = ({ post }: Props) => {
 	return (
-		<div key={post._id}>
+		<div>
 			<div className='relative w-full h-80 drop-shadow-xl hover:scale-105 transition-transform duration-200'>
 				<Image
 					className='object-cover object-left lg:object-center'

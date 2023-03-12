@@ -18,7 +18,7 @@ const Header = () => {
 				<Navbar />
 				<Categories openMenu={openMenu} />
 				{menu && (
-					<div className='animate-slide-in fixed top-0 left-0 right-0 h-screen bg-[#fff] w-full'>
+					<div className='animate-slide-in fixed md:hidden top-0 left-0 right-0 h-screen bg-[#fff] w-full'>
 						<SideNav closeMenu={closeMenu} />
 					</div>
 				)}

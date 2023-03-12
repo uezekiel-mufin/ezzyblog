@@ -9,7 +9,7 @@ type Props = {
 const RecentPost = ({ post }: Props) => {
 	return (
 		<div key={post._id}>
-			<div className='grid grid-cols-2 gap-3 w-full drop-shadow-xl hover:scale-105 transition-transform duration-200'>
+			<div className='grid grid-cols-2 shadow-lg p-3 gap-3 w-full drop-shadow-xl hover:scale-105 transition-transform duration-200'>
 				<div className='relative block'>
 					<Image
 						className='object-cover object-left lg:object-center'
