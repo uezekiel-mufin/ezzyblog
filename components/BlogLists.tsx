@@ -12,10 +12,14 @@ const BlogList = ({ posts }: Props) => {
 				Featured Posts
 			</h2>
 			<div className='grid grid-cols-1 md:grid-cols-2 gap-10 gap-y-16 pb-24 cursor-pointer'>
-				{posts.map((post) => (
-					<ClientRoute key={post._id} route={`posts/${post.slug.current}`}>
-						<BlogPost post={post} />
-					</ClientRoute>
+				{posts.map((post, index) => (
+					<section
+						key={post._id}
+						className={`${index % 3 === 0 && 'col-start-1 col-end-3'}`}>
+						<ClientRoute route={`posts/${post.slug.current}`}>
+							<BlogPost post={post} />
+						</ClientRoute>
+					</section>
 				))}
 			</div>
 		</div>

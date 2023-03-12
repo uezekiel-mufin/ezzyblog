@@ -28,7 +28,7 @@ export default async function RootLayout({
 		<html lang='en'>
 			<body className='mx-auto'>
 				<Header />
-				<main className='grid lg:grid-cols-9 w-full px-4  md:py-16 pb-20 mt-[200px]'>
+				<main className='grid lg:grid-cols-9 w-full px-4 md:px-16  md:py-16 pb-20 mt-[200px]'>
 					<section className='lg:col-span-6  lg:pl-10'>
 						<section>{children}</section>
 					</section>

@@ -9,7 +9,7 @@ type Props = {
 const BlogPost = ({ post }: Props) => {
 	return (
 		<div key={post._id}>
-			<div className='relative w-full h-80 drop-shadow-xl hover:scale-105 transition-transform duration-200'>
+			<div className='relative w-full h-[400px] drop-shadow-xl hover:scale-105 transition-transform duration-200'>
 				<Image
 					className='object-cover object-left lg:object-center'
 					src={urlFor(post.mainImage).url()}
