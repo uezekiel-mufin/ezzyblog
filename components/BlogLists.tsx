@@ -15,7 +15,7 @@ const BlogList = ({ posts }: Props) => {
 				{posts.map((post, index) => (
 					<section
 						key={post._id}
-						className={`${index % 3 === 0 && 'col-start-1 col-end-3'}`}>
+						className={`${index % 3 === 0 && 'md:col-start-1 md:col-end-3'}`}>
 						<ClientRoute route={`posts/${post.slug.current}`}>
 							<BlogPost post={post} />
 						</ClientRoute>

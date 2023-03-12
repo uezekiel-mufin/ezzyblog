@@ -40,7 +40,7 @@ const Page = async ({ params: { slug } }: Props) => {
 					<section
 						key={post._id}
 						className={`shadow-lg p-3 ${
-							index % 3 === 0 && 'col-start-1 col-end-3'
+							index % 3 === 0 && 'md:col-start-1 md:col-end-3'
 						}`}>
 						<ClientRoute key={post._id} route={`posts/${post.slug.current}`}>
 							<CategoryPost post={post} />
