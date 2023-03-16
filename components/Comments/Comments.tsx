@@ -36,7 +36,7 @@ const Comments = ({ id, comment }: Props) => {
 				onSubmit={handleSubmit(formSubmit)}
 				className='border border-gray-400 p-4 md:p-8 space-y-4  w-full md:w-[600px] '>
 				<h3 className='capitalize text-xl md:text-2xl lg:text-3xl font-semibold text-[#121212]'>
-					Leave a comment <br />
+					Leave a reply <br />
 					<span className='text-sm'>Your email address will not be published.</span>
 				</h3>
 				<div>

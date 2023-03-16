@@ -27,6 +27,17 @@ export default defineType({
 			type: 'text',
 		}),
 		defineField({
+			name: 'reply',
+			title: 'Reply',
+			type: 'text',
+		}),
+		defineField({
+			name: 'childComments',
+			title: 'Child Comments',
+			type: 'array',
+			of: [{ type: 'comment' }],
+		}),
+		defineField({
 			name: 'post',
 			title: 'Post',
 			type: 'reference',

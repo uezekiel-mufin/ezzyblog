@@ -79,6 +79,7 @@ interface Comment {
 	comment: string;
 	email: string;
 	name: string;
+	reply: string;
 	post: {
 		_ref: string;
 		_type: string;
