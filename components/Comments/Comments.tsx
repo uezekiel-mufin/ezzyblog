@@ -7,36 +7,41 @@ type Data = {
 	email: String;
 	comment: String;
 };
-const Comments = () => {
+
+type Props = {
+	id: String;
+	comment: Comment[];
+};
+const Comments = ({ id, comment }: Props) => {
 	const {
 		register,
 		handleSubmit,
 		formState: { errors },
 	} = useForm<Data>();
-
-	const formSubmit = (data: Data) => {
+	const formSubmit = async (data: Data) => {
 		console.log(data);
+		try {
+			await fetch('/api/comments', {
+				method: 'POST',
+				body: JSON.stringify({ ...data, id }),
+			});
+		} catch (err) {
+			console.log(err);
+		}
 	};
 	return (
 		<div className=''>
-			<DisplayComments />
+			<DisplayComments comment={comment} />
 			<form
 				onSubmit={handleSubmit(formSubmit)}
 				className='border border-gray-400 p-4 md:p-8 space-y-4  w-full md:w-[600px] '>
 				<h3 className='capitalize text-xl md:text-2xl lg:text-3xl font-semibold text-[#121212]'>
 					Leave a comment <br />
-					<span className='text-sm'>
-						Your email address will not be published.
-					</span>
+					<span className='text-sm'>Your email address will not be published.</span>
 				</h3>
 				<div>
-					<input
-						{...register('name', { required: true })}
-						placeholder='First Name or Full Name'
-					/>
-					{errors.name && (
-						<p className='text-red-500 text-xl'>Your name is required.</p>
-					)}
+					<input {...register('name', { required: true })} placeholder='First Name or Full Name' />
+					{errors.name && <p className='text-red-500 text-xl'>Your name is required.</p>}
 				</div>
 				<div>
 					<input
@@ -47,9 +52,7 @@ const Comments = () => {
 						placeholder='enter email address'
 					/>
 					{errors.email && (
-						<p className='text-red-500 text-xl'>
-							Please Enter a valid email address
-						</p>
+						<p className='text-red-500 text-xl'>Please Enter a valid email address</p>
 					)}
 				</div>
 				<div>
@@ -60,9 +63,7 @@ const Comments = () => {
 						})}
 						placeholder='enter your comment'
 					/>
-					{errors.email && (
-						<p className='text-red-500 text-xl'>Please Enter your comments</p>
-					)}
+					{errors.email && <p className='text-red-500 text-xl'>Please Enter your comments</p>}
 				</div>
 				<button
 					type='submit'

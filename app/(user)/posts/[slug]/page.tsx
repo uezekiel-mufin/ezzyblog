@@ -13,6 +13,16 @@ type Props = {
 	};
 };
 
+const commentQuery = groq`*[_type == "comment" && post._ref == $id && approved == true] {
+name,
+email,
+comment,
+  author->{
+    name,
+    avatar
+  }
+}`;
+
 const query = groq`
 *[_type=='post' && slug.current == $slug][0]{
 	...,
@@ -33,6 +43,8 @@ export async function generateStaticParams() {
 
 const Post = async ({ params: { slug } }: Props) => {
 	const post: Post = await client.fetch(query, { slug });
+	const comments: Comment[] = await client.fetch(commentQuery, { id: post._id });
+
 	return (
 		<article className=' w-full pb-20 overflow-auto'>
 			<section className='space-y-2 border border-pink-500 mb-8 text-white'>
@@ -89,7 +101,7 @@ const Post = async ({ params: { slug } }: Props) => {
 				</div>
 			</section>
 			<PortableText value={post.body} components={RichTextComponent} />
-			<Comments />
+			<Comments id={post._id} comment={comments} />
 		</article>
 	);
 };
