@@ -14,6 +14,7 @@ type Props = {
 };
 
 const commentQuery = groq`*[_type == "comment" && post._ref == $id && approved == true] {
+	...,
 name,
 email,
 comment,
