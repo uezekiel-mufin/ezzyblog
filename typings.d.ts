@@ -13,6 +13,7 @@ interface Post extends Base {
 	description: string;
 	_id: string;
 	_createdAt: string;
+	comments: Comment[];
 }
 
 interface Author extends Base {
@@ -79,6 +80,7 @@ interface Comment {
 	comment: string;
 	email: string;
 	name: string;
+	childComments: Comment[];
 	reply: string;
 	post: {
 		_ref: string;

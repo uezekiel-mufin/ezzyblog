@@ -1,7 +1,10 @@
 'use client';
-import React from 'react';
+import React, { useRef } from 'react';
 import { useForm } from 'react-hook-form';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import DisplayComments from './DisplayComments';
+
 type Data = {
 	name: String;
 	email: String;
@@ -13,6 +16,7 @@ type Props = {
 	comment: Comment[];
 };
 const Comments = ({ id, comment }: Props) => {
+	const formRef = useRef<HTMLFormElement>(null);
 	const {
 		register,
 		handleSubmit,
@@ -20,19 +24,28 @@ const Comments = ({ id, comment }: Props) => {
 	} = useForm<Data>();
 	const formSubmit = async (data: Data) => {
 		console.log(data);
+
 		try {
 			await fetch('/api/comments', {
 				method: 'POST',
 				body: JSON.stringify({ ...data, id }),
 			});
+
+			if (formRef.current) {
+				formRef.current.reset();
+			}
+			toast.success('Your comment has been added successfully');
 		} catch (err) {
 			console.log(err);
 		}
 	};
 	return (
 		<div className=''>
-			<DisplayComments comment={comment} />
+			<DisplayComments comment={comment} firstParentId={id} />
+			<ToastContainer position='top-center' />
 			<form
+				ref={formRef}
+				id='form'
 				onSubmit={handleSubmit(formSubmit)}
 				className='border border-gray-400 p-4 md:p-8 space-y-4  w-full md:w-[600px] '>
 				<h3 className='capitalize text-xl md:text-2xl lg:text-3xl font-semibold text-[#121212]'>
