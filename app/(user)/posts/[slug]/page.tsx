@@ -13,24 +13,29 @@ type Props = {
 	};
 };
 
-const commentQuery = groq`*[_type == "comment" && post._ref == $id && approved == true] {
-	...,
-name,
-email,
-comment,
-  author->{
-    name,
-    avatar
-  }
-}`;
+// const commentQuery = groq`*[_type == "comment" && post._ref == $id && approved == true] {
+// 	...,
+// name,
+// email,
+// comment,
+//   author->{
+//     name,
+//     avatar
+//   }
+// }`;
 
 const query = groq`
 *[_type=='post' && slug.current == $slug][0]{
 	...,
 	author->,
 	categories[]->,
-}
-`;
+	"comments": *[_type == "comment" && post._ref == ^._id && approved == true] {
+	...,
+	name,
+	email,
+	comment,
+	}
+}`;
 // caching and ssr
 export const revalidate = 60;
 export async function generateStaticParams() {
@@ -44,7 +49,7 @@ export async function generateStaticParams() {
 
 const Post = async ({ params: { slug } }: Props) => {
 	const post: Post = await client.fetch(query, { slug });
-	const comments: Comment[] = await client.fetch(commentQuery, { id: post._id });
+	// const comments: Comment[] = await client.fetch(commentQuery, { id: post._id });
 
 	return (
 		<article className=' w-full pb-20 overflow-auto'>
@@ -102,7 +107,7 @@ const Post = async ({ params: { slug } }: Props) => {
 				</div>
 			</section>
 			<PortableText value={post.body} components={RichTextComponent} />
-			<Comments id={post._id} comment={comments} />
+			<Comments id={post._id} comment={post.comments} />
 		</article>
 	);
 };

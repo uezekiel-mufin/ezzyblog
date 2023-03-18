@@ -17,9 +17,9 @@ const Navbar = () => {
 				</nav>
 				<nav className='text-[#949598] pl-4 flex gap-4 text-base '>
 					{socials.map((social) => (
-						<Link key={social} href={`/${social}`}>
+						<a key={social} href={`https://${social.toLowerCase()}`}>
 							{social}
-						</Link>
+						</a>
 					))}
 				</nav>
 			</div>
