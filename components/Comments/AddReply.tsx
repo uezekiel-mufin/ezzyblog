@@ -1,3 +1,4 @@
+'use client';
 import React, { useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import { ToastContainer, toast } from 'react-toastify';
@@ -25,24 +26,25 @@ const AddReply = ({ parentCommentId, firstParentId }: Props) => {
 	} = useForm<Data>();
 
 	const formSubmit = async (data: Data) => {
-		console.log(data);
 		if (parentCommentId) {
 			data.parentCommentId = parentCommentId;
 		}
-		console.log(data);
+		console.log(data, parentCommentId, firstParentId);
 
-		if (formRef.current) {
-			formRef.current.reset();
-		}
 		toast.success('Your reply has been added successfully');
-		// try {
-		// 	await fetch('/api/comments', {
-		// 		method: 'POST',
-		// 		body: JSON.stringify({ ...data, id: firstParentId }),
-		// 	});
-		// } catch (err) {
-		// 	console.log(err);
-		// }
+		try {
+			const result = await fetch('/api/comments', {
+				method: 'POST',
+				body: JSON.stringify({ ...data, id: firstParentId }),
+			});
+			if (formRef.current) {
+				formRef.current.reset();
+			}
+			const response = await result.json();
+			console.log(response);
+		} catch (err) {
+			console.log(err);
+		}
 	};
 	return (
 		<div>

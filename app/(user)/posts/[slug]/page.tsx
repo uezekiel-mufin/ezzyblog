@@ -34,7 +34,8 @@ const query = groq`
 	name,
 	email,
 	comment,
-	}
+	childComments
+	}|order(_createdAt asc)
 }`;
 // caching and ssr
 export const revalidate = 60;
@@ -49,7 +50,6 @@ export async function generateStaticParams() {
 
 const Post = async ({ params: { slug } }: Props) => {
 	const post: Post = await client.fetch(query, { slug });
-	// const comments: Comment[] = await client.fetch(commentQuery, { id: post._id });
 
 	return (
 		<article className=' w-full pb-20 overflow-auto'>

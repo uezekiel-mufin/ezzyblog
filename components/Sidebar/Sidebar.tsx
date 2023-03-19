@@ -23,9 +23,7 @@ const Sidebar = ({ posts }: Props) => {
 					<RandomPosts posts={posts} />
 				</section>
 			</section>
-			<section>
-				<AdSense />
-			</section>
+			<section>{/* <AdSense /> */}</section>
 		</div>
 	);
 };
