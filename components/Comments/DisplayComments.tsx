@@ -37,6 +37,7 @@ const DisplayComments = ({ comment, firstParentId }: Props) => {
 							<AddReply
 								parentCommentId={comment._id}
 								firstParentId={firstParentId || comment._id}
+								setShowReplyBox={setShowReplyBox}
 							/>
 						)}
 						{/* display childComments */}

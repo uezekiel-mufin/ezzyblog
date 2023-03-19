@@ -1,12 +1,13 @@
 'use client';
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import { ColorRing } from 'react-loader-spinner';
 type Props = {
 	parentCommentId: String;
 	firstParentId: String;
+	setShowReplyBox: Function;
 };
 
 type Data = {
@@ -17,21 +18,20 @@ type Data = {
 	firstParentId: String;
 };
 
-const AddReply = ({ parentCommentId, firstParentId }: Props) => {
+const AddReply = ({ parentCommentId, firstParentId, setShowReplyBox }: Props) => {
 	const formRef = useRef<HTMLFormElement>(null);
 	const {
 		register,
 		handleSubmit,
 		formState: { errors },
 	} = useForm<Data>();
-
+	const [loading, setLoading] = useState(false);
 	const formSubmit = async (data: Data) => {
+		setLoading(true);
 		if (parentCommentId) {
 			data.parentCommentId = parentCommentId;
 		}
-		console.log(data, parentCommentId, firstParentId);
 
-		toast.success('Your reply has been added successfully');
 		try {
 			const result = await fetch('/api/comments', {
 				method: 'POST',
@@ -42,9 +42,14 @@ const AddReply = ({ parentCommentId, firstParentId }: Props) => {
 			}
 			const response = await result.json();
 			console.log(response);
+			toast.success('Your reply has been added successfully');
+			setLoading(false);
 		} catch (err) {
 			console.log(err);
+			setLoading(false);
+			toast.error('Something went wrong, please try again later');
 		}
+		setShowReplyBox(false);
 	};
 	return (
 		<div>
@@ -67,11 +72,25 @@ const AddReply = ({ parentCommentId, firstParentId }: Props) => {
 					/>
 					{errors.email && <p className='text-red-500 text-xl'>Please Enter your comments</p>}
 				</div>
-				<button
-					type='submit'
-					className='bg-orange-700 px-4 py-2 rounded-lg w-full text-[#eeeeee] text-2xl'>
-					Post Reply
-				</button>
+				{loading ? (
+					<section className='flex justify-center items-center'>
+						<ColorRing
+							visible={true}
+							height='50'
+							width='50'
+							ariaLabel='blocks-loading'
+							wrapperStyle={{}}
+							wrapperClass='blocks-wrapper'
+							colors={['#e15b64', '#f47e60', '#f8b26a', '#abbd81', '#849b87']}
+						/>
+					</section>
+				) : (
+					<button
+						type='submit'
+						className='bg-orange-700 px-4 py-2 rounded-lg w-full text-[#eeeeee] text-2xl'>
+						Post Reply
+					</button>
+				)}
 			</form>
 		</div>
 	);
