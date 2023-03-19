@@ -12,7 +12,7 @@ type Data = {
 };
 
 type Props = {
-	id: String;
+	id: string;
 	comment: Comment[];
 };
 const Comments = ({ id, comment }: Props) => {

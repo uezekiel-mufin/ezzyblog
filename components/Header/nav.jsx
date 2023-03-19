@@ -10,9 +10,9 @@ const Navbar = () => {
 			<div className='hidden md:flex gap-4 divide-x-2 divide-[#56585c]'>
 				<nav className='text-[#949598] flex gap-4 text-base '>
 					{links.map((link) => (
-						<Link key={link} href={`/${link}`}>
+						<a key={link} href={`/${link}`}>
 							{link}
-						</Link>
+						</a>
 					))}
 				</nav>
 				<nav className='text-[#949598] pl-4 flex gap-4 text-base '>
