@@ -5,7 +5,23 @@ import { BsFillMoonFill, BsSun } from 'react-icons/bs';
 
 const Navbar = ({ openMenu }) => {
 	const links = ['About', 'FAQ', 'Contact Us'];
-	const socials = ['Facebook', 'Twitter', 'Instagram'];
+	const socials = [
+		{
+			id: 1,
+			name: 'Facebook',
+			links: 'https://facebook.com/Ezzywealth',
+		},
+		{
+			id: 2,
+			name: 'Twitter',
+			links: 'https://twitter.com/Ezzywealth',
+		},
+		{
+			id: 3,
+			name: 'LinkedIn',
+			links: 'https://linkedin.com/ezekiel-udiomuno',
+		},
+	];
 	const [theme, setTheme] = useState('light');
 
 	const handleTheme = (color) => {
@@ -53,8 +69,8 @@ const Navbar = ({ openMenu }) => {
 				</nav>
 				<nav className='text-[#949598] pl-4 flex gap-4 text-base '>
 					{socials.map((social) => (
-						<a key={social} href={`https://${social.toLowerCase()}`}>
-							{social}
+						<a key={social.id} href={social.links} target='_blank' rel='noreferrer'>
+							{social.name}
 						</a>
 					))}
 				</nav>

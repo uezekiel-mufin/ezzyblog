@@ -20,6 +20,7 @@ const query = groq`
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
 	// fetch data from studio
 	const posts = await client.fetch(query);
+
 	return (
 		<html lang='en'>
 			<body className='mx-auto theme-dark bg-skin-bgDark'>
