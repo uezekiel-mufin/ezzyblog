@@ -8,7 +8,7 @@ type Props = {
 };
 const BlogPost = ({ post }: Props) => {
 	return (
-		<div key={post._id}>
+		<div className='shadow-sm'>
 			<div className='relative w-full h-[400px] drop-shadow-xl hover:scale-105 transition-transform duration-200'>
 				<Image
 					className='object-cover object-left lg:object-center'
@@ -26,7 +26,7 @@ const BlogPost = ({ post }: Props) => {
 				<div className='flex justify-between mb-3'>
 					<span className='flex gap-3 items-center'>
 						<p className='text-sm text-skin-date'>
-							By <span className='text-skin-name text-base'>{post.author.name}</span>
+							By <span className='text-skin-name font-semibold text-base'>{post.author.name}</span>
 						</p>
 						<p className='text-sm text-skin-date italic'>
 							on{' '}
@@ -44,9 +44,11 @@ const BlogPost = ({ post }: Props) => {
 
 				<p className='line-clamp-2 text-skin-description text-sm'>{post?.description}</p>
 			</div>
-			<p className='mt-3 font-bold text-xl text-skin-readPost flex items-center hover:underline'>
+			<button
+				type='button'
+				className='bg-skin-bgBtn px-3 py-1 rounded-lg hover:scale-105 transition-all duration-300 ease-linear mt-3 font-bold text-base text-skin-readPost flex items-center hover:underline'>
 				Read Post <ArrowRightIcon className='ml-2 h-4 w-4' />
-			</p>
+			</button>
 		</div>
 	);
 };
