@@ -30,6 +30,7 @@ module.exports = {
 				skin: {
 					bgLight: 'rgb(var(--bg-light))',
 					bgDark: 'rgb(var(--bg-dark))',
+					bgBtn: 'rgb(var(--bg-btn-pry))',
 				},
 			},
 			borderColor: {

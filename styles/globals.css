@@ -38,10 +38,11 @@
 		--text-name: 249, 115, 22;
 		--text-date: 209, 213, 219;
 		--text-description: 249, 250, 251;
-		--text-read: 156, 163, 175;
+		--text-read: 238, 238, 238;
 		--text-header: 249, 250, 251;
 		--text-title: 249, 250, 251;
 		--bg-border: 156, 163, 175;
+		--bg-btn-pry: 249, 115, 22;
 	}
 
 	.theme-light {
@@ -53,10 +54,11 @@
 		--text-name: 249, 115, 22;
 		--text-date: 107, 114, 128;
 		--text-description: 55, 65, 81;
-		--text-read: 55, 65, 81;
+		--text-read: 238, 238, 238;
 		--text-header: 18, 18, 18;
 		--text-title: 18, 18, 18;
 		--bg-border: 255, 255, 255;
+		--bg-btn-pry: 249, 115, 22;
 	}
 }
 

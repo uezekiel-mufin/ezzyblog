@@ -110,10 +110,10 @@ const SideNav = ({ closeMenu }: Props) => {
 
 	return (
 		<div className='fixed top-0 left-0 right-0 bg-[#333] w-full z-100 flex  px-4 md:px-24 py-4 md:py-7 h-screen'>
-			<div className='flex flex-col gap-8 w-full '>
+			<div className='flex flex-col gap-4 w-full '>
 				<div className='flex justify-between items-center'>
 					<h1 className='text-3xl  text-orange-500 font-bold'>Ezzy Blog</h1>
-					<span className='md:hidden flex p-3 text-2xl' aria-hidden='true'>
+					<span className='md:hidden cursor-pointer flex p-3 text-2xl' aria-hidden='true'>
 						<AiOutlineCloseCircle onClick={() => closeMenu()} className='h-8 w-8 text-orange-500' />
 					</span>
 				</div>
