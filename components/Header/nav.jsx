@@ -1,12 +1,64 @@
 import Link from 'next/link';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { AiOutlineMenuFold } from 'react-icons/ai';
+import { BsFillMoonFill, BsSun } from 'react-icons/bs';
 
-const Navbar = () => {
+const Navbar = ({ openMenu }) => {
 	const links = ['About', 'FAQ', 'Contact Us'];
-	const socials = ['Facebook', 'Twitter', 'Instagram'];
+	const socials = [
+		{
+			id: 1,
+			name: 'Facebook',
+			links: 'https://facebook.com/Ezzywealth',
+		},
+		{
+			id: 2,
+			name: 'Twitter',
+			links: 'https://twitter.com/Ezzywealth',
+		},
+		{
+			id: 3,
+			name: 'LinkedIn',
+			links: 'https://linkedin.com/ezekiel-udiomuno',
+		},
+	];
+	const [theme, setTheme] = useState('light');
+
+	const handleTheme = (color) => {
+		if (color === 'light') {
+			setTheme('dark');
+			document.body.classList.remove('theme-light');
+			document.body.classList.add('theme-dark');
+		} else {
+			setTheme('light');
+			document.body.classList.remove('theme-dark');
+			document.body.classList.add('theme-light');
+		}
+	};
+
+	useEffect(() => {
+		handleTheme('light');
+	}, []);
+
 	return (
-		<main className='text-[#56585c] flex justify-between py-6 px-4 m:px-12 pb-10'>
-			<h1 className='text-orange-500 text-2xl'>Ezzy Blog</h1>
+		<main className='text-textLight  flex md:justify-between py-6 px-4 m:px-12  md:pb-10'>
+			<span className='flex md:hidden justify-end' onClick={() => openMenu()}>
+				<AiOutlineMenuFold className='h-10 text-orange-500 w-10' />
+			</span>
+			<h1 className='text-skin-name text-2xl flex-1 md:flex-none text-center'>Ezzy Blog</h1>
+			<span className='md:hidden'>
+				{theme === 'light' ? (
+					<BsFillMoonFill
+						className='h-7 text-skin-name w-7 cursor-pointer'
+						onClick={() => handleTheme('light')}
+					/>
+				) : (
+					<BsSun
+						className='h-7 text-skin-name w-7 cursor-pointer'
+						onClick={() => handleTheme('dark')}
+					/>
+				)}
+			</span>
 			<div className='hidden md:flex gap-4 divide-x-2 divide-[#56585c]'>
 				<nav className='text-[#949598] flex gap-4 text-base '>
 					{links.map((link) => (
@@ -17,8 +69,8 @@ const Navbar = () => {
 				</nav>
 				<nav className='text-[#949598] pl-4 flex gap-4 text-base '>
 					{socials.map((social) => (
-						<a key={social} href={`https://${social.toLowerCase()}`}>
-							{social}
+						<a key={social.id} href={social.links} target='_blank' rel='noreferrer'>
+							{social.name}
 						</a>
 					))}
 				</nav>

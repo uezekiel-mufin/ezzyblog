@@ -53,7 +53,7 @@ const Comments = ({ id, comment }: Props) => {
 				id='form'
 				onSubmit={handleSubmit(formSubmit)}
 				className='relative border border-gray-400 p-4 md:p-8 space-y-4 mt-12 w-full md:w-[600px]'>
-				<h3 className='capitalize text-xl md:text-2xl lg:text-3xl font-semibold text-[#121212]'>
+				<h3 className='capitalize text-xl md:text-2xl lg:text-3xl font-semibold text-skin-title'>
 					Leave a reply <br />
 					<span className='text-sm'>Your email address will not be published.</span>
 				</h3>
