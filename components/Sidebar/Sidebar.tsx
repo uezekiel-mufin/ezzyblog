@@ -11,13 +11,13 @@ const Sidebar = ({ posts }: Props) => {
 		<div className='h-full'>
 			<section className='space-y-16'>
 				<section>
-					<h2 className='text-2xl font-semibold border-b border-gray-400 pb-3 mb-6'>
+					<h2 className='text-2xl text-skin-title font-semibold border-b border-gray-400 pb-3 mb-6'>
 						Recent Posts
 					</h2>
 					<RecentPosts posts={posts} />
 				</section>
 				<section>
-					<h2 className='text-2xl font-semibold border-b border-gray-400 pb-3 mb-6'>
+					<h2 className='text-2xl font-semibold text-skin-title border-b border-gray-400 pb-3 mb-6'>
 						Random Posts
 					</h2>
 					<RandomPosts posts={posts} />

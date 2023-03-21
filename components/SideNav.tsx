@@ -64,10 +64,7 @@ const SideNav = ({ closeMenu }: Props) => {
 				<div className='flex justify-between items-center'>
 					<h1 className='text-3xl  text-orange-500 font-bold'>Ezzy Blog</h1>
 					<span className='md:hidden flex p-3 text-2xl' aria-hidden='true'>
-						<AiOutlineCloseCircle
-							onClick={() => closeMenu()}
-							className='h-8 w-8 text-orange-500'
-						/>
+						<AiOutlineCloseCircle onClick={() => closeMenu()} className='h-8 w-8 text-orange-500' />
 					</span>
 				</div>
 				<nav className='flex flex-col gap-4 items-start'>
@@ -75,16 +72,14 @@ const SideNav = ({ closeMenu }: Props) => {
 						<li
 							key={link.id}
 							className={`list-none hover:scale-105   font-semibold border-r border-solid  w-full border-orange-500 transition-all ease-in-out duration-300 ${
-								activeLink === link.id
-									? 'text-black text-2xl'
-									: 'text-gray-200 text-xl'
+								activeLink === link.id ? 'text-black text-2xl' : 'text-[#eeeeee] text-xl'
 							}`}
 							onClick={() => linkClick(link.id)}
 							aria-hidden='true'>
 							<Link
 								href={link.name === 'Home' ? '/' : `categories/${link.link}`}
 								className='flex items-center gap-3'>
-								<span>{link.icon}</span>
+								<span className='text-skin-name'>{link.icon}</span>
 								<span>{link.name}</span>
 							</Link>
 						</li>

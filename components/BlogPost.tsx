@@ -25,13 +25,10 @@ const BlogPost = ({ post }: Props) => {
 			<div className='mt-3 flex-1'>
 				<div className='flex justify-between mb-3'>
 					<span className='flex gap-3 items-center'>
-						<p className='text-sm'>
-							By{' '}
-							<span className='text-orange-500 text-base'>
-								{post.author.name}
-							</span>
+						<p className='text-sm text-skin-date'>
+							By <span className='text-skin-name text-base'>{post.author.name}</span>
 						</p>
-						<p className='text-sm italic'>
+						<p className='text-sm text-skin-date italic'>
 							on{' '}
 							{new Date(post._createdAt).toLocaleDateString('en-US', {
 								day: 'numeric',
@@ -40,16 +37,14 @@ const BlogPost = ({ post }: Props) => {
 							})}
 						</p>
 					</span>
-					<p className='text-orange-400 rounded-full text-sm font-semibold'>
+					<p className='text-skin-name rounded-full text-sm font-semibold'>
 						{post?.categories[0].title.split(' ')[0]}
 					</p>
 				</div>
 
-				<p className='line-clamp-2 text-gray-500 text-sm'>
-					{post?.description}
-				</p>
+				<p className='line-clamp-2 text-skin-description text-sm'>{post?.description}</p>
 			</div>
-			<p className='mt-3 font-bold text-xl text-gray-500 flex items-center hover:underline'>
+			<p className='mt-3 font-bold text-xl text-skin-readPost flex items-center hover:underline'>
 				Read Post <ArrowRightIcon className='ml-2 h-4 w-4' />
 			</p>
 		</div>
