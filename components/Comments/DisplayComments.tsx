@@ -14,7 +14,6 @@ const DisplayComments = ({ comment, firstParentId }: Props) => {
 		setToggleId(id);
 		setShowReplyBox(!showReplyBox);
 	};
-	console.log(comment);
 	return (
 		<main className='my-12 bg-gray-100 rounded-lg'>
 			<section className='border-pink-200 space-y-4 border px-4 pb-8 pt-4'>

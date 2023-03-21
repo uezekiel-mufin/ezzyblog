@@ -13,17 +13,6 @@ type Props = {
 	};
 };
 
-// const commentQuery = groq`*[_type == "comment" && post._ref == $id && approved == true] {
-// 	...,
-// name,
-// email,
-// comment,
-//   author->{
-//     name,
-//     avatar
-//   }
-// }`;
-
 const query = groq`
 *[_type=='post' && slug.current == $slug][0]{
 	...,

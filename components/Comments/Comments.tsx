@@ -5,6 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import DisplayComments from './DisplayComments';
 import { ColorRing } from 'react-loader-spinner';
+import emailjs from 'emailjs-com';
 
 type Data = {
 	name: String;
@@ -24,9 +25,13 @@ const Comments = ({ id, comment }: Props) => {
 		handleSubmit,
 		formState: { errors },
 	} = useForm<Data>();
+
+	// send notification email to my mail
+	const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+	const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+	const userId = process.env.NEXT_PUBLIC_EMAILJS_USER_ID;
 	const formSubmit = async (data: Data) => {
 		setLoading(true);
-
 		try {
 			await fetch('/api/comments', {
 				method: 'POST',
@@ -36,6 +41,11 @@ const Comments = ({ id, comment }: Props) => {
 			if (formRef.current) {
 				formRef.current.reset();
 			}
+
+			if (serviceId && templateId && userId && formRef.current) {
+				emailjs.sendForm(serviceId, templateId, formRef.current, userId);
+			}
+
 			setLoading(false);
 			toast.success('Your comment has been added successfully');
 		} catch (err) {
@@ -58,7 +68,7 @@ const Comments = ({ id, comment }: Props) => {
 					<span className='text-sm'>Your email address will not be published.</span>
 				</h3>
 				<div>
-					<input {...register('name', { required: true })} placeholder='First Name or Full Name' />
+					<input {...register('name', { required: true })} placeholder='Enter Full Name' />
 					{errors.name && <p className='text-red-500 text-xl'>Your name is required.</p>}
 				</div>
 				<div>
