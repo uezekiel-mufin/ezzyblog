@@ -1,16 +1,15 @@
 'use client';
 import React from 'react';
-import RandomPosts from '../RandomPost/RandomPosts';
+import RelatedPosts from '../RelatedPost/RelatedPosts';
 import RecentPosts from '../RecentPost/RecentPosts';
-import AdSense from './AdSense';
 import { usePathname } from 'next/navigation';
 
 type Props = {
 	posts: Post[];
 };
+
 const Sidebar = ({ posts }: Props) => {
 	const pathName = usePathname();
-
 	if (pathName === '/about' || pathName === '/contact' || pathName === '/faq') return null;
 	return (
 		<div className='h-full'>
@@ -22,10 +21,7 @@ const Sidebar = ({ posts }: Props) => {
 					<RecentPosts posts={posts} />
 				</section>
 				<section>
-					<h2 className='text-2xl font-semibold text-skin-title border-b border-gray-400 pb-3 mb-6'>
-						Related Posts
-					</h2>
-					<RandomPosts posts={posts} />
+					<RelatedPosts />
 				</section>
 			</section>
 		</div>

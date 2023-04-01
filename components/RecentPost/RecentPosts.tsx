@@ -10,11 +10,15 @@ type Props = {
 
 const RecentPosts = ({ posts }: Props) => {
 	// console.log(postings);
+
 	return (
 		<div>
 			<div className='grid gap-4'>
 				{posts.map((post) => (
-					<ClientRoute key={post._id} route={`posts/${post.slug.current}`}>
+					<ClientRoute
+						key={post._id}
+						route={`posts/${post.slug.current}`}
+						query={`search=${post?.categories[0].title.split(' ')[0]}`}>
 						<RecentPost key={post._id} post={post} />
 					</ClientRoute>
 				))}

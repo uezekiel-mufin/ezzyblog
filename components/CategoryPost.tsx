@@ -7,6 +7,7 @@ type Props = {
 	post: Post;
 };
 const CategoryPost = ({ post }: Props) => {
+	console.log(post);
 	return (
 		<div className='shadow-sm border-b border-skin-bgBorder border-solid p-5 hover:scale-105 transition-transform duration-200'>
 			<div className='relative border-skin-bgBorder w-full h-80 drop-shadow-xl'>

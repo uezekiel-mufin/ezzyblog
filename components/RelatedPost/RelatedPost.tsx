@@ -1,12 +1,8 @@
-import urlFor from '@/lib/urlFor';
-import { ArrowRightIcon } from '@heroicons/react/24/solid';
-import Image from 'next/image';
-import React from 'react';
-
 type Props = {
 	post: Post;
 };
-const RandomPost = ({ post }: Props) => {
+
+const RelatedPost = ({ post }: Props) => {
 	return (
 		<div key={post._id}>
 			<div className='grid grid-cols-1 shadow-lg p-3 gap-3 w-full border border-skin-bgBorder drop-shadow-xl hover:scale-105 transition-transform duration-200'>
@@ -34,4 +30,4 @@ const RandomPost = ({ post }: Props) => {
 	);
 };
 
-export default RandomPost;
+export default RelatedPost;
