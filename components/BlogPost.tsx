@@ -8,8 +8,8 @@ type Props = {
 };
 const BlogPost = ({ post }: Props) => {
 	return (
-		<div className='shadow-sm'>
-			<div className='relative w-full h-[400px] drop-shadow-xl hover:scale-105 transition-transform duration-200'>
+		<div className='shadow-sm border-b border-skin-bgBorder border-solid p-5 hover:scale-105 transition-transform duration-200'>
+			<div className='relative w-full h-[400px] drop-shadow-xl'>
 				<Image
 					className='object-cover object-left lg:object-center'
 					src={urlFor(post.mainImage).url()}

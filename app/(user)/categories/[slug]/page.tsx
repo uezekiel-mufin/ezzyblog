@@ -27,11 +27,9 @@ const Page = async ({ params: { slug } }: Props) => {
 					There are no articles for <span className='text-2xl capitalize'>{slug}</span> category
 				</h2>
 			)}
-			<div className='grid grid-cols-1  md:grid-cols-2 gap-10 gap-y-16 pb-24 cursor-pointer'>
+			<div className='grid grid-cols-1 border-skin-bgBorder md:grid-cols-2 gap-10 gap-y-16 pb-24 cursor-pointer'>
 				{posts.map((post: Post, index: number) => (
-					<section
-						key={post._id}
-						className={`shadow-lg p-3 ${index % 3 === 0 && 'md:col-start-1 md:col-end-3'}`}>
+					<section key={post._id} className={`${index % 3 === 0 && 'md:col-start-1 md:col-end-3'}`}>
 						<ClientRoute key={post._id} route={`posts/${post.slug.current}?query=${slug}`}>
 							<CategoryPost post={post} />
 						</ClientRoute>

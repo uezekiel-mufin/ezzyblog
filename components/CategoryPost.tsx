@@ -8,8 +8,8 @@ type Props = {
 };
 const CategoryPost = ({ post }: Props) => {
 	return (
-		<div>
-			<div className='relative border-skin-bgBorder w-full h-80 drop-shadow-xl hover:scale-105 transition-transform duration-200'>
+		<div className='shadow-sm border-b border-skin-bgBorder border-solid p-5 hover:scale-105 transition-transform duration-200'>
+			<div className='relative border-skin-bgBorder w-full h-80 drop-shadow-xl'>
 				<Image
 					className='object-cover object-left lg:object-center'
 					src={urlFor(post.mainImage).url()}
