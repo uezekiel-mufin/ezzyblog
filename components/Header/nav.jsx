@@ -41,9 +41,9 @@ const Navbar = ({ openMenu }) => {
 	}, []);
 
 	return (
-		<main className='text-textLight transition-all duration-300 ease-linear flex md:justify-between py-6 px-4 m:px-12  md:pb-10'>
+		<main className='text-textLight transition-all duration-300 ease-linear flex justify-between py-6 px-4 m:px-12  md:pb-10'>
 			<span className='flex md:hidden justify-end' onClick={() => openMenu()}>
-				<AiOutlineMenuFold className='h-10 text-orange-500 w-10' />
+				<AiOutlineMenuFold className='h-8 text-orange-500 w-8' />
 			</span>
 			<h1 className='text-skin-name text-2xl flex-1 md:flex-none text-center'>Ezzy Blog</h1>
 			<span className='md:hidden'>
