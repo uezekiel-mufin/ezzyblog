@@ -19,7 +19,7 @@ const Page = async ({ params: { slug } }: Props) => {
 
 	return (
 		<div className=''>
-			<h2 className='text-2xl capitalize font-semibold border-b border-gray-400 pb-3 mb-6'>
+			<h2 className='text-2xl capitalize text-skin-title font-semibold border-b border-gray-400 pb-3 mb-6'>
 				{slug}
 			</h2>
 			{posts.length < 1 && (
@@ -32,7 +32,7 @@ const Page = async ({ params: { slug } }: Props) => {
 					<section
 						key={post._id}
 						className={`shadow-lg p-3 ${index % 3 === 0 && 'md:col-start-1 md:col-end-3'}`}>
-						<ClientRoute key={post._id} route={`posts/${post.slug.current}`}>
+						<ClientRoute key={post._id} route={`posts/${post.slug.current}?query=${slug}`}>
 							<CategoryPost post={post} />
 						</ClientRoute>
 					</section>

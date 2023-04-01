@@ -11,7 +11,7 @@ export const metadata = {
 };
 export const revalidate = 60;
 const query = groq`
-*[_type=='post']{
+*[_type=='post'][0...3]{
 	...,
 	author->,
 	categories[]->,
