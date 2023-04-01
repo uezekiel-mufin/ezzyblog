@@ -30,7 +30,10 @@ const Page = async ({ params: { slug } }: Props) => {
 			<div className='grid grid-cols-1 border-skin-bgBorder md:grid-cols-2 gap-10 gap-y-16 pb-24 cursor-pointer'>
 				{posts.map((post: Post, index: number) => (
 					<section key={post._id} className={`${index % 3 === 0 && 'md:col-start-1 md:col-end-3'}`}>
-						<ClientRoute key={post._id} route={`posts/${post.slug.current}?query=${slug}`}>
+						<ClientRoute
+							key={post._id}
+							route={`posts/${post.slug.current}`}
+							query={`search=${post?.categories[0].title.split(' ')[0]}`}>
 							<CategoryPost post={post} />
 						</ClientRoute>
 					</section>

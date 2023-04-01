@@ -30,11 +30,11 @@ const Header = () => {
 	return (
 		<header className='fixed top-0 w-full z-10'>
 			<div className='bg-[#333] divide-y-2 divide-[#949598]'>
-				{showNavbar && (
-					<div className='transition-all duration-300 ease-in-out'>
-						<Navbar openMenu={openMenu} />
-					</div>
-				)}
+				<div
+					className={`${showNavbar ? 'flex transition-all duration-300 ease-in-out' : 'hidden'}`}>
+					<Navbar openMenu={openMenu} />
+				</div>
+
 				<Categories />
 				{menu && (
 					<div className='animate-slide-in fixed md:hidden top-0 left-0 right-0 h-screen bg-[#fff] w-full'>
