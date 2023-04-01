@@ -14,7 +14,9 @@ const BlogList = ({ posts }: Props) => {
 			<div className='grid grid-cols-1 md:grid-cols-2 gap-10 gap-y-16 pb-24 cursor-pointer'>
 				{posts.map((post, index) => (
 					<section key={post._id} className={`${index % 3 === 0 && 'md:col-start-1 md:col-end-3'}`}>
-						<ClientRoute route={`posts/${post.slug.current}`}>
+						<ClientRoute
+							route={`posts/${post.slug.current}`}
+							query={`search=${post?.categories[0].title.split(' ')[0]}`}>
 							<BlogPost post={post} />
 						</ClientRoute>
 					</section>
