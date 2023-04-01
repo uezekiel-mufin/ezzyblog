@@ -9,7 +9,7 @@ type Props = {
 const CategoryPost = ({ post }: Props) => {
 	return (
 		<div>
-			<div className='relative w-full h-80 drop-shadow-xl hover:scale-105 transition-transform duration-200'>
+			<div className='relative border-skin-bgBorder w-full h-80 drop-shadow-xl hover:scale-105 transition-transform duration-200'>
 				<Image
 					className='object-cover object-left lg:object-center'
 					src={urlFor(post.mainImage).url()}
@@ -18,18 +18,15 @@ const CategoryPost = ({ post }: Props) => {
 				/>
 				<div className='absolute bottom-0 w-full bg-opacity-20 bg-black backdrop-blur-lg rounded drop-shadow-lg text-white p-5 flex justify-between'>
 					<div>
-						<p className='underline text-lg font-bold'>{post.title}</p>
+						<p className='underline text-lg font-bold text-skin-title'>{post.title}</p>
 					</div>
 				</div>
 			</div>
 			<div className='mt-3 flex-1'>
 				<div className='flex justify-between mb-3'>
-					<span className='flex gap-3 items-center'>
-						<p className='text-sm'>
-							By{' '}
-							<span className='text-orange-500 text-base'>
-								{post.author.name}
-							</span>
+					<span className='flex gap-3 text-skin-title items-center'>
+						<p className='text-sm '>
+							By <span className='text-orange-500 text-base'>{post.author.name}</span>
 						</p>
 						<p className='text-sm italic'>
 							on{' '}
@@ -45,9 +42,7 @@ const CategoryPost = ({ post }: Props) => {
 					</p>
 				</div>
 
-				<p className='line-clamp-2 text-gray-500 text-sm'>
-					{post?.description}
-				</p>
+				<p className='line-clamp-2 text-gray-500 text-sm'>{post?.description}</p>
 			</div>
 			<p className='mt-3 font-bold text-xl text-gray-500 flex items-center hover:underline'>
 				Read Post <ArrowRightIcon className='ml-2 h-4 w-4' />

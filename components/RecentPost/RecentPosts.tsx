@@ -1,3 +1,5 @@
+import { client } from '@/lib/sanity.client';
+import { groq } from 'next-sanity';
 import React from 'react';
 import ClientRoute from '../ClientRoute';
 import RecentPost from './RecentPost';
@@ -5,7 +7,9 @@ import RecentPost from './RecentPost';
 type Props = {
 	posts: Post[];
 };
+
 const RecentPosts = ({ posts }: Props) => {
+	// console.log(postings);
 	return (
 		<div>
 			<div className='grid gap-4'>
