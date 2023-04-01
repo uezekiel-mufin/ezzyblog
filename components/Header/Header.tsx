@@ -31,7 +31,7 @@ const Header = () => {
 		<header className='fixed top-0 w-full z-10'>
 			<div className='bg-[#333] divide-y-2 divide-[#949598]'>
 				{showNavbar && (
-					<div className='transition-all duration-300 ease-linear'>
+					<div className='transition-all duration-300 ease-in-out'>
 						<Navbar openMenu={openMenu} />
 					</div>
 				)}

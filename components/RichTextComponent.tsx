@@ -29,17 +29,17 @@ export const RichTextComponent = {
 	},
 	block: {
 		h1: ({ children }: any) => (
-			<h1 className='text-skin-textBody text-5xl font-semibold'>{children}</h1>
+			<h1 className='text-skin-textBody text-5xl my-4 font-semibold'>{children}</h1>
 		),
 		h2: ({ children }: any) => (
-			<h2 className='text-skin-textBody text-4xl py-10 font-bold'>{children}</h2>
+			<h2 className='text-skin-textBody text-4xl py-10 my-4 font-bold'>{children}</h2>
 		),
-		h3: ({ children }: any) => <h3 className='text-skin-textBody text-3xl '>{children}</h3>,
-		h4: ({ children }: any) => <h4 className='text-skin-textBody text-2xl'>{children}</h4>,
+		h3: ({ children }: any) => <h3 className='text-skin-textBody text-3xl my-4 font-semibold'>{children}</h3>,
+		h4: ({ children }: any) => <h4 className='text-skin-textBody text-2xl my-4 font-semibold'>{children}</h4>,
 		p: ({ children }: any) => <p className='text-skin-textBody text-xl '>{children} </p>,
 		li: ({ children }: any) => <li className='text-skin-textBody text-2xl '>{children} </li>,
-		blockquote: ({ children }: any) => <p className='text-skin-textBody text-xl '>{children} </p>,
-		normal: ({ children }: any) => <p className='text-skin-textBody text-xl'>{children} </p>,
+		blockquote: ({ children }: any) => <p className='text-skin-textBody text-lg '>{children} </p>,
+		normal: ({ children }: any) => <p className='text-skin-textBody text-base'>{children} </p>,
 	},
 	blockQuote: ({ children }: any) => (
 		<p className='text-skin-textBody border-l-pink-500 border-l-4 text-xl pl-5 py-5 my-5'>
