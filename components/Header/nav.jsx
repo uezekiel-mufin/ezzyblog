@@ -4,7 +4,24 @@ import { AiOutlineMenuFold } from 'react-icons/ai';
 import { BsFillMoonFill, BsSun } from 'react-icons/bs';
 
 const Navbar = ({ openMenu }) => {
-	const links = ['About', 'FAQ', 'Contact Us'];
+	const links = [
+		{
+			id: 1,
+			name: 'About',
+			link: 'about',
+		},
+		{
+			id: 2,
+			name: 'FAQ',
+			link: 'faq',
+		},
+		{
+			id: 3,
+			name: 'Contact Us',
+			link: 'contact',
+		},
+	];
+
 	const socials = [
 		{
 			id: 1,
@@ -41,7 +58,7 @@ const Navbar = ({ openMenu }) => {
 	}, []);
 
 	return (
-		<main className='text-textLight transition-all duration-300 ease-linear flex justify-between py-6 px-4 m:px-12  md:pb-10'>
+		<main className='text-textLight transition-all duration-300 ease-linear flex items-center w-full md:justify-between py-6 px-4 m:px-12  md:pb-10'>
 			<span className='flex md:hidden justify-end' onClick={() => openMenu()}>
 				<AiOutlineMenuFold className='h-8 text-orange-500 w-8' />
 			</span>
@@ -62,9 +79,9 @@ const Navbar = ({ openMenu }) => {
 			<div className='hidden md:flex gap-4 divide-x-2 divide-[#56585c]'>
 				<nav className='text-[#949598] flex gap-4 text-base '>
 					{links.map((link) => (
-						<a key={link} href={`/${link}`}>
-							{link}
-						</a>
+						<Link key={link} href={`/${link.link}`}>
+							{link.name}
+						</Link>
 					))}
 				</nav>
 				<nav className='text-[#949598] pl-4 flex gap-4 text-base '>

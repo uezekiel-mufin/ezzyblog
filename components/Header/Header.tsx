@@ -31,7 +31,9 @@ const Header = () => {
 		<header className='fixed top-0 w-full z-10'>
 			<div className='bg-[#333] divide-y-2 divide-[#949598]'>
 				<div
-					className={`${showNavbar ? 'flex transition-all duration-300 ease-in-out' : 'hidden'}`}>
+					className={`${
+						showNavbar ? 'flex w-full transition-all duration-300 ease-in-out' : 'hidden'
+					}`}>
 					<Navbar openMenu={openMenu} />
 				</div>
 
