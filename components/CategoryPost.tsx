@@ -19,7 +19,7 @@ const CategoryPost = ({ post }: Props) => {
 				/>
 				<div className='absolute bottom-0 w-full bg-opacity-20 bg-black backdrop-blur-lg rounded drop-shadow-lg text-white p-5 flex justify-between'>
 					<div>
-						<p className='underline text-lg font-bold text-skin-title'>{post.title}</p>
+						<p className='underline text-lg font-bold'>{post.title}</p>
 					</div>
 				</div>
 			</div>
