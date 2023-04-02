@@ -2,12 +2,19 @@ import { groq } from 'next-sanity';
 import { client } from '@/lib/sanity.client';
 import ClientRoute from '@/components/ClientRoute';
 import CategoryPost from '@/components/CategoryPost';
+import { Metadata } from 'next';
 
 type Props = {
 	params: {
 		slug: string;
 	};
 };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+	return {
+		title: params.slug,
+	};
+}
 
 const Page = async ({ params: { slug } }: Props) => {
 	const query = groq`*[_type == "post" && references(*[_type == "category" && title == $slug]._id)] {

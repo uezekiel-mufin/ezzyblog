@@ -6,12 +6,19 @@ import React from 'react';
 import { PortableText } from '@portabletext/react';
 import { RichTextComponent } from '@/components/RichTextComponent';
 import Comments from '@/components/Comments/Comments';
+import { Metadata } from 'next';
 
 type Props = {
 	params: {
 		slug: string;
 	};
 };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+	return {
+		title: params.slug,
+	};
+}
 
 const query = groq`
 *[_type=='post' && slug.current == $slug][0]{
