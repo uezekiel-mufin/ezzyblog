@@ -27,7 +27,7 @@ const socials = [
 ];
 const FooterTop = () => {
 	return (
-		<main className='px-4 md:px-12 py-8'>
+		<main className=' py-8'>
 			<section className='flex flex-col-reverse md:grid md:grid-cols-2 gap-8'>
 				<section className='text-[#eeeeee] text-xl space-y-4'>
 					<h3 className='text-2xl'>Contact US</h3>

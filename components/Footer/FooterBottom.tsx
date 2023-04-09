@@ -6,7 +6,7 @@ const FooterBottom = () => {
 		<div className='text-[#eeeeee] text-xl text-center py-4 tracking-wider'>
 			{' '}
 			&copy; {new Date().getFullYear()}{' '}
-			<span className='text-orange-500'>Ezzy Tech</span>, Inc.
+			<span className='text-orange-500'>Tech Talks</span>, Inc.
 		</div>
 	);
 };

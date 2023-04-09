@@ -62,7 +62,7 @@ const Navbar = ({ openMenu }) => {
 			<span className='flex md:hidden justify-end' onClick={() => openMenu()}>
 				<AiOutlineMenuFold className='h-8 text-orange-500 w-8' />
 			</span>
-			<h1 className='text-skin-name text-2xl flex-1 md:flex-none text-center'>Ezzy Blog</h1>
+			<h1 className='text-skin-name text-2xl flex-1 md:flex-none text-center'>Tech Talks</h1>
 			<span className='md:hidden'>
 				{theme === 'light' ? (
 					<BsFillMoonFill
@@ -79,7 +79,7 @@ const Navbar = ({ openMenu }) => {
 			<div className='hidden md:flex gap-4 divide-x-2 divide-[#56585c]'>
 				<nav className='text-[#949598] flex gap-4 text-base '>
 					{links.map((link) => (
-						<Link key={link} href={`/${link.link}`}>
+						<Link key={link.id} href={`/${link.link}`}>
 							{link.name}
 						</Link>
 					))}

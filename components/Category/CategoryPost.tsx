@@ -7,7 +7,8 @@ import { AiOutlineClockCircle } from 'react-icons/ai';
 type Props = {
 	post: Post;
 };
-const BlogPost = ({ post }: Props) => {
+const CategoryPost = ({ post }: Props) => {
+	console.log('');
 	return (
 		<div className='shadow-sm p-5 hover:scale-105 transition-transform duration-200'>
 			<div className='relative w-full h-[400px] drop-shadow-xl rounded-lg'>
@@ -23,8 +24,9 @@ const BlogPost = ({ post }: Props) => {
 					<p className='text-skin-name rounded-full text-sm font-semibold'>
 						{post?.categories[0].title.split(' ')[0]}
 					</p>
-					<p className='text-base flex gap-1 items-center'>
-						<AiOutlineClockCircle className='h-4 w-6' /> <span>5 min Read</span>
+					<p className='text-base flex gap-1 items-center text-orange-200'>
+						<AiOutlineClockCircle className='h-4 w-6' />{' '}
+						<span className=''>{`${post?.time} min Read` || '5 min Read'}</span>
 					</p>
 				</div>
 				<div>
@@ -59,4 +61,4 @@ const BlogPost = ({ post }: Props) => {
 	);
 };
 
-export default BlogPost;
+export default CategoryPost;
