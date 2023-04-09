@@ -1,8 +1,7 @@
 'use client';
-import React, { useState } from 'react';
+import React from 'react';
 
 type Props = {
-	pageItems: Post[];
 	setPageItems: React.Dispatch<React.SetStateAction<Post[]>>;
 	startCount: number;
 	endCount: number;
@@ -16,7 +15,6 @@ type Props = {
 };
 
 const Pagination = ({
-	pageItems,
 	setPageItems,
 	startCount,
 	endCount,
@@ -29,7 +27,6 @@ const Pagination = ({
 	num,
 }: Props) => {
 	const handleNext = () => {
-		console.log(currentPage);
 		if (currentPage === num) {
 			return;
 		} else {
@@ -61,19 +58,19 @@ const Pagination = ({
 
 	if (num === 1) return null;
 	return (
-		<div className='flex border-t border-orange-300 border-solid py-3 justify-between text-orange-200 px-4 mt-4'>
+		<div className='flex relative py-3 justify-between text-skin-title font-semibold px-4 mt-4'>
 			{currentPage > 1 && (
 				<button
-					className='px-4  py-1 border border-orange-300 text-base rounded-md tracking-wider hover:scale-105 transition-all duration-300 ease-in-out'
+					className='px-4 absolute left-0 py-1 border border-skin-paginateBorder text-base rounded-md tracking-wider hover:scale-105 transition-all duration-300 ease-in-out'
 					onClick={handlePrev}>
-					Prev
+					Prev Page
 				</button>
 			)}
 			{currentPage < num && (
 				<button
-					className='px-4 float-right py-1 border border-orange-300 text-base rounded-md tracking-wider hover:scale-105 transition-all duration-300 ease-in-out'
+					className='px-4 absolute right-0 py-1 border border-skin-paginateBorder text-base rounded-md tracking-wider hover:scale-105 transition-all duration-300 ease-in-out'
 					onClick={handleNext}>
-					Next
+					Next Page
 				</button>
 			)}
 		</div>

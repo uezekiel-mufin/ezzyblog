@@ -30,7 +30,6 @@ const CategoryPage = ({ posts }: Props) => {
 				))}
 			</div>
 			<Pagination
-				pageItems={pageItems}
 				setPageItems={setPageItems}
 				startCount={startCount}
 				endCount={endCount}
