@@ -36,6 +36,7 @@ module.exports = {
 			borderColor: {
 				skin: {
 					bgBorder: 'rgb(var(--bg-border))',
+					paginateBorder: 'rgb(var(--border-paginate))',
 				},
 			},
 		},

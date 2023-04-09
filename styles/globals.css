@@ -43,9 +43,11 @@
 		--text-title: 249, 250, 251;
 		--bg-border: 156, 163, 175;
 		--bg-btn-pry: 249, 115, 22;
+		--border-paginate: 253, 186, 116;
 	}
 
 	.theme-light {
+		--border-paginate: 249, 115, 22;
 		--text-body: 18, 18, 18;
 		--bg-dark: 245, 245, 245;
 		--bg-light: 111 114 185;
