@@ -58,6 +58,8 @@ const Pagination = ({
 			});
 		}
 	};
+
+	if (num === 1) return null;
 	return (
 		<div className='flex border-t border-orange-300 border-solid py-3 justify-between text-orange-200 px-4 mt-4'>
 			{currentPage > 1 && (

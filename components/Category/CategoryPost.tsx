@@ -8,7 +8,6 @@ type Props = {
 	post: Post;
 };
 const CategoryPost = ({ post }: Props) => {
-	console.log('');
 	return (
 		<div className='shadow-sm p-5 hover:scale-105 transition-transform duration-200'>
 			<div className='relative w-full h-[400px] drop-shadow-xl rounded-lg'>
