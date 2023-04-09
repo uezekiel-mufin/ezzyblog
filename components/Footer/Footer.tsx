@@ -5,8 +5,8 @@ import FooterTop from './FooterTop';
 
 const FooterSection = () => {
 	return (
-		<main className='pt-8 md:pt-12 bg-[#333] w-full '>
-			<h2 className='text-3xl text-orange-500 mb-4 px-4'>Ezzy Blog</h2>
+		<main className='pt-8 md:pt-12 bg-[#333] w-full px-4 md:px-12'>
+			<h2 className='text-3xl text-orange-500 mb-4'>Tech Talks</h2>
 			<section className='divide-y-2 divide-gray-600'>
 				<FooterTop />
 				<FooterBottom />

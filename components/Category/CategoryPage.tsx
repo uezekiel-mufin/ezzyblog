@@ -1,32 +1,30 @@
 'use client';
 import React, { useState } from 'react';
-import BlogPost from './BlogPost';
-import ClientRoute from './ClientRoute';
-import Pagination from './Paginations/Pagination';
+import ClientRoute from '../ClientRoute';
+import Pagination from '../Paginations/Pagination';
+import CategoryPost from './CategoryPost';
 
 type Props = {
 	posts: Post[];
 };
 
-const itemsPerPage = 6;
-const BlogList = ({ posts }: Props) => {
+const itemsPerPage = 5;
+const CategoryPage = ({ posts }: Props) => {
 	const [startCount, setStartCount] = useState(0);
 	const [endCount, setEndCount] = useState(itemsPerPage);
 	const [pageItems, setPageItems] = useState(posts.slice(startCount, endCount));
 	const [currentPage, setCurrentPage] = useState(1);
 	const numOfPages = Math.ceil(posts.length / itemsPerPage);
 	return (
-		<div className=''>
-			<h2 className='text-2xl font-semibold text-skin-title border-b border-gray-400 pb-3 mb-6'>
-				Featured Posts
-			</h2>
-			<div className='grid grid-cols-1  gap-1 gap-y-16 pb-24 cursor-pointer'>
-				{pageItems.map((post, index) => (
+		<div>
+			<div className='grid grid-cols-1 border-skin-bgBorder  gap-10 gap-y-16 pb-24 cursor-pointer'>
+				{pageItems.map((post: Post, index: number) => (
 					<section key={post._id}>
 						<ClientRoute
+							key={post._id}
 							route={`posts/${post.slug.current}`}
 							query={`search=${post?.categories[0].title.split(' ')[0]}`}>
-							<BlogPost post={post} />
+							<CategoryPost post={post} />
 						</ClientRoute>
 					</section>
 				))}
@@ -48,4 +46,4 @@ const BlogList = ({ posts }: Props) => {
 	);
 };
 
-export default BlogList;
+export default CategoryPage;

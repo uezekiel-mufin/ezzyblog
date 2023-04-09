@@ -9,6 +9,7 @@ interface Post extends Base {
 	categories: Category[];
 	mainImage: Image;
 	slug: Slug;
+	time: string;
 	title: string;
 	description: string;
 	_id: string;

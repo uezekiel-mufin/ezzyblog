@@ -1,8 +1,7 @@
 import { groq } from 'next-sanity';
 import { client } from '@/lib/sanity.client';
-import ClientRoute from '@/components/ClientRoute';
-import CategoryPost from '@/components/CategoryPost';
 import { Metadata } from 'next';
+import CategoryPage from '@/components/Category/CategoryPage';
 
 type Props = {
 	params: {
@@ -10,19 +9,23 @@ type Props = {
 	};
 };
 
+// dynamic page title
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
 	return {
 		title: params.slug,
 	};
 }
 
-const Page = async ({ params: { slug } }: Props) => {
-	const query = groq`*[_type == "post" && references(*[_type == "category" && title == $slug]._id)] {
+// fetch posts by category query
+const query = groq`*[_type == "post" && references(*[_type == "category" && title == $slug]._id)] {
 	...,
    author->,
 	categories[]->,
   }`;
-	const posts = await client.fetch(query, { slug });
+
+const Page = async ({ params: { slug } }: Props) => {
+	// fetch posts by category
+	const posts: Post[] = await client.fetch(query, { slug });
 
 	return (
 		<div className=''>
@@ -34,18 +37,7 @@ const Page = async ({ params: { slug } }: Props) => {
 					There are no articles for <span className='text-2xl capitalize'>{slug}</span> category
 				</h2>
 			)}
-			<div className='grid grid-cols-1 border-skin-bgBorder md:grid-cols-2 gap-10 gap-y-16 pb-24 cursor-pointer'>
-				{posts.map((post: Post, index: number) => (
-					<section key={post._id} className={`${index % 3 === 0 && 'md:col-start-1 md:col-end-3'}`}>
-						<ClientRoute
-							key={post._id}
-							route={`posts/${post.slug.current}`}
-							query={`search=${post?.categories[0].title.split(' ')[0]}`}>
-							<CategoryPost post={post} />
-						</ClientRoute>
-					</section>
-				))}
-			</div>
+			<CategoryPage posts={posts} />
 		</div>
 	);
 };
