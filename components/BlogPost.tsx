@@ -9,7 +9,7 @@ type Props = {
 };
 const BlogPost = ({ post }: Props) => {
 	return (
-		<div className='shadow-sm p-3 cursor-pointer hover:scale-105 transition-transform duration-200'>
+		<div className='shadow-sm py-3 cursor-pointer hover:scale-105 transition-transform duration-200'>
 			<div className='relative w-full h-[400px] drop-shadow-xl rounded-lg'>
 				<Image
 					className='object-cover object-left lg:object-center rounded-lg'
