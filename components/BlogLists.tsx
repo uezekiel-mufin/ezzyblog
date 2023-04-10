@@ -20,7 +20,7 @@ const BlogList = ({ posts }: Props) => {
 			<h2 className='text-2xl font-semibold text-skin-title border-b border-gray-400 pb-3 mb-6'>
 				Featured Posts
 			</h2>
-			<div className='grid grid-cols-1  gap-1 gap-y-16 pb-24 cursor-pointer'>
+			<div className='grid grid-cols-1 gap-1 gap-y-16 pb-24'>
 				{pageItems.map((post, index) => (
 					<section key={post._id}>
 						<ClientRoute
