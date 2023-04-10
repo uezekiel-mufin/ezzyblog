@@ -9,7 +9,7 @@ type Props = {
 };
 const CategoryPost = ({ post }: Props) => {
 	return (
-		<div className='shadow-sm p-5 hover:scale-105 transition-transform duration-200'>
+		<div className='shadow-sm py-5 hover:scale-105 transition-transform duration-200'>
 			<div className='relative w-full h-[400px] drop-shadow-xl rounded-lg'>
 				<Image
 					className='object-cover object-left lg:object-center rounded-lg'
