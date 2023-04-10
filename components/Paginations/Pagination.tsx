@@ -59,7 +59,7 @@ const Pagination = ({
 	if (num === 1) return null;
 
 	return (
-		<div className='flex relative py-3 justify-between text-skin-title font-semibold px-4 my-8'>
+		<div className='flex relative py-3 justify-between text-skin-title font-semibold px-4 my-4 mb-20'>
 			{currentPage > 1 && (
 				<button
 					className='px-4 absolute left-0 py-1 border border-skin-paginateBorder text-base rounded-md tracking-wider hover:scale-105 transition-all duration-300 ease-in-out'
