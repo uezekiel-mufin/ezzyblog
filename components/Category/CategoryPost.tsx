@@ -23,13 +23,13 @@ const CategoryPost = ({ post }: Props) => {
 					<p className='text-skin-name rounded-full text-sm font-semibold'>
 						{post?.categories[0].title.split(' ')[0]}
 					</p>
-					<p className='text-base flex gap-1 items-center text-orange-200'>
+					<p className='text-base flex gap-1 items-center text-skin-name'>
 						<AiOutlineClockCircle className='h-4 w-6' />{' '}
 						<span className=''>{`${post?.time} min Read` || '5 min Read'}</span>
 					</p>
 				</div>
 				<div>
-					<p className='text-2xl flex justify-between text-skin-title font-bold line-clamp-1'>
+					<p className='text-base md:text-2xl flex justify-between text-skin-title font-bold line-clamp-1'>
 						{post.title}
 					</p>
 				</div>
@@ -49,11 +49,11 @@ const CategoryPost = ({ post }: Props) => {
 							By <span className='text-skin-name font-semibold text-base'>{post.author.name}</span>
 						</p>
 					</div>
-					<button
+					{/* <button
 						type='button'
 						className='bg-skin-bgBtn px-3 py-1 rounded-lg hover:scale-105 transition-all duration-300 ease-linear font-semibold text-sm text-skin-readPost flex items-center hover:underline'>
 						Read Post <ArrowRightIcon className='ml-2 h-4 w-4' />
-					</button>
+					</button> */}
 				</div>
 			</div>
 		</div>
