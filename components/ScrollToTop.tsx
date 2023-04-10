@@ -1,14 +1,30 @@
 'use client';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { RiArrowUpFill } from 'react-icons/ri';
 
 const ScrollToTop = () => {
+	const [scroll, setScroll] = useState(true);
 	const handleScrollToTop = () => {
 		window.scrollTo({
 			top: 0,
 			behavior: 'smooth',
 		});
 	};
+
+	useEffect(() => {
+		const handleScroll = () => {
+			const currentScrollY = window.scrollY;
+			if (currentScrollY > 500 && !scroll) {
+				setScroll(true);
+			} else if (currentScrollY <= 500 && scroll) {
+				setScroll(false);
+			}
+		};
+		window.addEventListener('scroll', handleScroll);
+		return () => window.removeEventListener('scroll', handleScroll);
+	}, [scroll]);
+
+	if (!scroll) return null;
 	return (
 		<div
 			onClick={handleScrollToTop}
