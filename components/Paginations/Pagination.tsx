@@ -36,12 +36,11 @@ const Pagination = ({
 			setCurrentPage((prev) => prev + 1);
 			window.scrollTo({
 				top: 0,
-				behavior: 'smooth',
+				behavior: 'auto',
 			});
 		}
 	};
 	const handlePrev = () => {
-		console.log(currentPage);
 		if (currentPage === 1) {
 			return;
 		} else {
@@ -51,29 +50,53 @@ const Pagination = ({
 			setCurrentPage((prev) => prev - 1);
 			window.scrollTo({
 				top: 0,
-				behavior: 'smooth',
+				behavior: 'auto',
 			});
 		}
+	};
+
+	const handleJump = (num: number) => {
+		setStartCount(num * itemsPerPage - itemsPerPage);
+		setEndCount(num * itemsPerPage);
+		setPageItems(posts.slice(startCount, endCount));
+		setCurrentPage(num);
+		window.scrollTo({
+			top: 0,
+			behavior: 'auto',
+		});
 	};
 
 	if (num === 1) return null;
 
 	return (
-		<div className='flex relative py-3 justify-between text-skin-title font-semibold px-4 my-4 mb-20'>
-			{currentPage > 1 && (
-				<button
-					className='px-4 absolute left-0 py-1 border border-skin-paginateBorder text-base rounded-md tracking-wider hover:scale-105 transition-all duration-300 ease-in-out'
-					onClick={handlePrev}>
-					Prev Page
-				</button>
-			)}
-			{currentPage < num && (
-				<button
-					className='px-4 absolute right-0 py-1 border border-skin-paginateBorder text-base rounded-md tracking-wider hover:scale-105 transition-all duration-300 ease-in-out'
-					onClick={handleNext}>
-					Next Page
-				</button>
-			)}
+		<div className='flex relative py-3 justify-center text-skin-title font-semibold px-4 my-4 mb-20'>
+			<button
+				className='px-4  py-1 border border-skin-paginateBorder text-base rounded-md tracking-wider hover:scale-105 transition-all duration-300 ease-in-out'
+				onClick={handlePrev}>
+				Prev
+			</button>
+
+			<div className='flex items-center mx-4 gap-1'>
+				{
+					//convert the number of pages to an array
+					[...Array(num)].map((item, ind) => (
+						<button
+							onClick={() => handleJump(ind + 1)}
+							key={ind}
+							className={`border-skin-paginateBorder cursor-pointer h-8 w-8 flex items-center text-sm font-normal justify-center border ${
+								currentPage === ind + 1 ? 'bg-orange-500' : ''
+							}`}>
+							{ind + 1}
+						</button>
+					))
+				}
+			</div>
+
+			<button
+				className='px-4 py-1 border border-skin-paginateBorder text-base rounded-md tracking-wider hover:scale-105 transition-all duration-300 ease-in-out'
+				onClick={handleNext}>
+				Next
+			</button>
 		</div>
 	);
 };

@@ -8,7 +8,7 @@ type Props = {
 	posts: Post[];
 };
 
-const itemsPerPage = 6;
+const itemsPerPage = 5;
 const BlogList = ({ posts }: Props) => {
 	const [startCount, setStartCount] = useState(0);
 	const [endCount, setEndCount] = useState(itemsPerPage);

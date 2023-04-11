@@ -5,7 +5,7 @@ type Props = {
 const RelatedPost = ({ post }: Props) => {
 	return (
 		<div key={post._id}>
-			<div className='grid grid-cols-1 shadow-lg p-3 gap-3 w-full border border-skin-bgBorder drop-shadow-xl hover:scale-105 transition-transform duration-200'>
+			<div className='grid grid-cols-1 shadow-lg p-3 gap-3 w-full drop-shadow-xl hover:scale-105 transition-transform duration-200'>
 				<div className=' flex justify-center gap-2 flex-col'>
 					<p className='text-skin-name rounded-full text-sm font-semibold'>
 						{post?.categories[0].title}

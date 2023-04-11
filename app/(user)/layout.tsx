@@ -29,8 +29,8 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 				</div>
 				<section className='bg-skin-bgDark'>
 					<Header />
-					<main className=' grid lg:grid-cols-9 w-full px-4 md:px-16  md:py-16 pb-20 mt-[150px] md:mt-[200px]'>
-						<section className='lg:col-span-6  lg:pl-10'>
+					<main className=' grid lg:grid-cols-9 w-full px-4 md:px-16 justify-center md:py-16 pb-20 mt-[150px] md:mt-[200px]'>
+						<section className='lg:col-span-5 col-start-2  lg:pl-10'>
 							<section>{children}</section>
 						</section>
 						<section className='lg:col-span-3  lg:pl-10 '>
