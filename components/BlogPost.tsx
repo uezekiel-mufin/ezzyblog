@@ -1,16 +1,20 @@
+'use client';
 import urlFor from '@/lib/urlFor';
-import { ArrowRightIcon } from '@heroicons/react/24/solid';
 import Image from 'next/image';
-import React from 'react';
+import React, { useState } from 'react';
 import { AiOutlineClockCircle } from 'react-icons/ai';
 
 type Props = {
 	post: Post;
 };
 const BlogPost = ({ post }: Props) => {
+	const [showRead, setShowRead] = useState(false);
 	return (
-		<div className='shadow-sm py-3 cursor-pointer hover:scale-105 transition-transform duration-200'>
-			<div className='relative w-full h-[400px] drop-shadow-xl rounded-lg'>
+		<div className='shadow-sm py-3 cursor-pointer hover:scale-[1.01] ease-linear transition-all duration-300'>
+			<div
+				className={`relative w-full h-[400px] drop-shadow-xl rounded-lg`}
+				onMouseEnter={() => setShowRead(!showRead)}
+				onMouseLeave={() => setShowRead(!showRead)}>
 				<Image
 					className='object-cover object-left lg:object-center rounded-lg'
 					src={urlFor(post.mainImage).url()}
@@ -49,11 +53,6 @@ const BlogPost = ({ post }: Props) => {
 							By <span className='text-skin-name font-semibold text-base'>{post.author.name}</span>
 						</p>
 					</div>
-					{/* <button
-						type='button'
-						className='bg-skin-bgBtn px-3 py-1 rounded-lg hover:scale-105 transition-all duration-300 ease-linear font-semibold text-sm text-skin-readPost flex items-center hover:underline'>
-						Read Post <ArrowRightIcon className='ml-2 h-4 w-4' />
-					</button> */}
 				</div>
 			</div>
 		</div>

@@ -11,7 +11,7 @@ type Props = {
 	posts: Post[];
 	currentPage: number;
 	setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
-	num: number;
+	numOfPages: number;
 };
 
 const Pagination = ({
@@ -24,10 +24,10 @@ const Pagination = ({
 	posts,
 	currentPage,
 	setCurrentPage,
-	num,
+	numOfPages,
 }: Props) => {
 	const handleNext = () => {
-		if (currentPage === num) {
+		if (currentPage === numOfPages) {
 			return;
 		} else {
 			setStartCount(startCount + itemsPerPage);
@@ -66,24 +66,24 @@ const Pagination = ({
 		});
 	};
 
-	if (num === 1) return null;
+	if (numOfPages === 1) return null;
 
 	return (
 		<div className='flex relative py-3 justify-center text-skin-title font-semibold px-4 my-4 mb-20'>
 			<button
 				className='px-4  py-1 border border-skin-paginateBorder text-base rounded-md tracking-wider hover:scale-105 transition-all duration-300 ease-in-out'
 				onClick={handlePrev}>
-				Prev
+				{currentPage === 1 ? 'First Page' : 'Prev Page'}
 			</button>
 
 			<div className='flex items-center mx-4 gap-1'>
 				{
 					//convert the number of pages to an array
-					[...Array(num)].map((item, ind) => (
+					[...Array(numOfPages)].map((item, ind) => (
 						<button
 							onClick={() => handleJump(ind + 1)}
 							key={ind}
-							className={`border-skin-paginateBorder cursor-pointer h-8 w-8 flex items-center text-sm font-normal justify-center border ${
+							className={`border-skin-paginateBorder font-semibold cursor-pointer h-8 w-8 flex items-center text-base  justify-center border ${
 								currentPage === ind + 1 ? 'bg-orange-500' : ''
 							}`}>
 							{ind + 1}
@@ -95,7 +95,7 @@ const Pagination = ({
 			<button
 				className='px-4 py-1 border border-skin-paginateBorder text-base rounded-md tracking-wider hover:scale-105 transition-all duration-300 ease-in-out'
 				onClick={handleNext}>
-				Next
+				{currentPage === numOfPages ? 'Last Page' : 'Next Page'}
 			</button>
 		</div>
 	);
