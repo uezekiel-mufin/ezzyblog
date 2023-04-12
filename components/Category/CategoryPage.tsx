@@ -39,7 +39,7 @@ const CategoryPage = ({ posts }: Props) => {
 				posts={posts}
 				currentPage={currentPage}
 				setCurrentPage={setCurrentPage}
-				num={numOfPages}
+				numOfPages={numOfPages}
 			/>
 		</div>
 	);

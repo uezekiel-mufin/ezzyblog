@@ -21,7 +21,6 @@ const BlogPost = ({ post }: Props) => {
 					alt={post.author.name}
 					fill
 				/>
-				{/* {showRead && <div className='readPost'>Read Post</div>} */}
 			</div>
 			<div className='mt-3 flex-1 space-y-2'>
 				<div className='flex justify-between'>
