@@ -29,11 +29,11 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 				</div>
 				<section className='bg-skin-bgDark'>
 					<Header />
-					<main className=' grid lg:grid-cols-9 w-full md:gap-12 lg:gap-16 px-4 md:px-32 justify-center md:py-16 pb-20 mt-[150px] md:mt-[200px]'>
-						<section className='lg:col-span-6  lg:pl-10'>
+					<main className=' grid lg:grid-cols-12 w-full md:gap-8 xl:gap-16 px-4 md:px-8  xl:px-28 justify-center md:py-16 pb-20 mt-[150px] md:mt-[200px]'>
+						<section className='lg:col-span-8 md:px-8'>
 							<section>{children}</section>
 						</section>
-						<section className='lg:col-span-3  lg:pl-10 '>
+						<section className='lg:col-span-4'>
 							<Sidebar posts={posts} />
 						</section>
 					</main>

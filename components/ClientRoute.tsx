@@ -13,6 +13,7 @@ const ClientRoute = ({
 	query: string;
 }) => {
 	return <Link href={{ pathname: route, query: query }}>{children}</Link>;
+	// return <a href=''>{children}</a>;
 };
 
 export default ClientRoute;
