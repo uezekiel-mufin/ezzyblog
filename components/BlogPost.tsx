@@ -13,9 +13,9 @@ const BlogPost = ({ post }: Props) => {
 	const [showRead, setShowRead] = useState(false);
 
 	const controls = useAnimation();
-	const { ref, inView } = useInView();
+	const { ref, inView } = useInView({ triggerOnce: true });
 	const boxVariants = {
-		hidden: { marginTop: '200px' },
+		hidden: { marginTop: '150px' },
 		visible: {
 			marginTop: '0px',
 			transition: {
@@ -31,7 +31,7 @@ const BlogPost = ({ post }: Props) => {
 		if (!inView) {
 			controls.start('hidden');
 		}
-	}, [controls, inView]);
+	}, [inView, controls]);
 
 	return (
 		<motion.div

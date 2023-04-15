@@ -3,10 +3,26 @@ import React, { useState, useEffect } from 'react';
 import Navbar from './nav';
 import Categories from './categories';
 import SideNav from '../SideNav';
+import { motion, useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 const Header = () => {
 	const [menu, setMenu] = useState(false);
 	const [showNavbar, setShowNavbar] = useState(true);
+	const controls = useAnimation();
+	const { ref } = useInView();
+
+	const boxVariants = {
+		hidden: { height: '0px', opacity: 0 },
+		visible: {
+			height: '100%',
+			opacity: 1,
+			transition: {
+				duration: 5,
+			},
+		},
+	};
+
 	const openMenu = () => {
 		setMenu(true);
 	};
@@ -17,25 +33,24 @@ const Header = () => {
 	useEffect(() => {
 		const handleScroll = () => {
 			const currentScrollY = window.scrollY;
-			if (currentScrollY > 100 && showNavbar) {
+			if (currentScrollY > 100) {
 				setShowNavbar(false);
-			} else if (currentScrollY <= 100 && !showNavbar) {
+				controls.start('hidden');
+			} else if (currentScrollY <= 100) {
 				setShowNavbar(true);
+				controls.start('visible');
 			}
 		};
 		window.addEventListener('scroll', handleScroll);
 		return () => window.removeEventListener('scroll', handleScroll);
-	}, [showNavbar]);
+	}, [showNavbar, controls]);
 
 	return (
 		<header className='fixed top-0 w-full z-10'>
-			<div className='bg-[#333] divide-y-2 divide-[#949598]'>
-				<div
-					className={`${
-						showNavbar ? 'flex w-full transition-all duration-300 ease-in-out' : 'hidden'
-					}`}>
+			<div className={`bg-[#333]  ${showNavbar ? 'divide-[#949598] divide-y-2' : ''}`}>
+				<motion.div ref={ref} variants={boxVariants} animate={controls}>
 					<Navbar openMenu={openMenu} />
-				</div>
+				</motion.div>
 
 				<Categories />
 				{menu && (

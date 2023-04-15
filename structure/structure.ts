@@ -2,10 +2,7 @@ import { DefaultDocumentNodeResolver } from 'sanity/desk';
 import Iframe from 'sanity-plugin-iframe-pane';
 
 // Import this into the deskTool() plugin
-export const defaultDocumentNode: DefaultDocumentNodeResolver = (
-	S,
-	{ schemaType }
-) => {
+export const defaultDocumentNode: DefaultDocumentNodeResolver = (S, { schemaType }) => {
 	// Only show preview pane on `movie` schema type documents
 	switch (schemaType) {
 		case `post`:
@@ -14,9 +11,7 @@ export const defaultDocumentNode: DefaultDocumentNodeResolver = (
 				S.view
 					.component(Iframe)
 					.options({
-						url: `${
-							process.env.NEXT_VERCEL_URL || 'http://localhost:3000/'
-						}/api/preview`,
+						url: `${process.env.NEXT_VERCEL_URL || 'http://localhost:3000/'}api/preview`,
 						defaultSize: 'desktop',
 						reload: {
 							button: true,

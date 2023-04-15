@@ -11,9 +11,9 @@ type Props = {
 };
 const CategoryPost = ({ post }: Props) => {
 	const controls = useAnimation();
-	const { ref, inView } = useInView();
+	const { ref, inView } = useInView({ triggerOnce: true });
 	const boxVariants = {
-		hidden: { marginTop: '200px' },
+		hidden: { marginTop: '150px' },
 		visible: {
 			marginTop: '0px',
 			transition: {
