@@ -54,7 +54,7 @@ const Navbar = ({ openMenu }) => {
 	};
 
 	useEffect(() => {
-		handleTheme('light');
+		handleTheme('dark');
 	}, []);
 
 	return (

@@ -23,7 +23,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 
 	return (
 		<html lang='en'>
-			<body className='mx-auto theme-dark bg-skin-bgDark'>
+			<body className='mx-auto theme-light bg-skin-bgDark'>
 				<div className='fixed bottom-16 right-4 z-50 '>
 					<ScrollToTop />
 				</div>
