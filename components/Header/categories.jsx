@@ -53,7 +53,7 @@ const Categories = () => {
 	};
 
 	useEffect(() => {
-		handleTheme('light');
+		handleTheme('dark');
 	}, []);
 	return (
 		<div className='hidden md:flex py-4 md:py-8 justify-between'>

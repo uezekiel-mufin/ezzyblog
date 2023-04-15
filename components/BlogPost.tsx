@@ -1,16 +1,45 @@
 'use client';
 import urlFor from '@/lib/urlFor';
 import Image from 'next/image';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { AiOutlineClockCircle } from 'react-icons/ai';
+import { motion, useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 type Props = {
 	post: Post;
 };
 const BlogPost = ({ post }: Props) => {
 	const [showRead, setShowRead] = useState(false);
+
+	const controls = useAnimation();
+	const { ref, inView } = useInView();
+	const boxVariants = {
+		hidden: { marginTop: '200px' },
+		visible: {
+			marginTop: '0px',
+			transition: {
+				duration: 0.5,
+			},
+		},
+	};
+
+	useEffect(() => {
+		if (inView) {
+			controls.start('visible');
+		}
+		if (!inView) {
+			controls.start('hidden');
+		}
+	}, [controls, inView]);
+
 	return (
-		<div className='shadow-sm py-3 cursor-pointer hover:scale-[1.01] ease-linear transition-all duration-300'>
+		<motion.div
+			ref={ref}
+			initial='hidden'
+			animate={controls}
+			variants={boxVariants}
+			className='shadow-sm py-3 cursor-pointer hover:scale-[1.01] ease-linear transition-all duration-300'>
 			<div
 				className={`relative w-full h-[400px] drop-shadow-xl rounded-lg`}
 				onMouseEnter={() => setShowRead(!showRead)}
@@ -55,7 +84,7 @@ const BlogPost = ({ post }: Props) => {
 					</div>
 				</div>
 			</div>
-		</div>
+		</motion.div>
 	);
 };
 
