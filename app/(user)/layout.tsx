@@ -29,7 +29,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 				</div>
 				<section className='bg-skin-bgDark'>
 					<Header />
-					<main className=' grid lg:grid-cols-12 w-full md:gap-8 xl:gap-16 px-4 md:px-8  xl:px-28 justify-center md:py-16 pb-20 mt-[150px] md:mt-[200px]'>
+					<main className=' grid lg:grid-cols-12 w-full md:gap-8 xl:gap-16 px-4 md:px-8  xl:px-28 justify-center md:py-16 pb-20 mt-[150px] md:mt-[90px]'>
 						<section className='lg:col-span-8 md:px-8'>
 							<section>{children}</section>
 						</section>
