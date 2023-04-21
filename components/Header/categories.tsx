@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import ClientRoute from '../ClientRoute';
 import { BsFillMoonFill, BsSun } from 'react-icons/bs';
+import { AiOutlineMenuFold } from 'react-icons/ai';
 
 const categories = [
 	{
@@ -36,11 +37,15 @@ const categories = [
 		link: 'reactjs',
 	},
 ];
-const Categories = () => {
+
+type CategoriesProps = {
+	openMenu: () => void;
+};
+const Categories = ({ openMenu }: CategoriesProps) => {
 	const pathname = usePathname();
 	const [theme, setTheme] = useState('light');
 
-	const handleTheme = (color) => {
+	const handleTheme = (color: string) => {
 		if (color === 'light') {
 			setTheme('dark');
 			document.body.classList.remove('theme-light');
@@ -56,32 +61,19 @@ const Categories = () => {
 		handleTheme('dark');
 	}, []);
 	return (
-		<div className='hidden md:flex py-4 md:py-8 justify-between'>
+		<div className='flex py-4 px-4 md:py-8 justify-between'>
+			<span className='flex md:hidden justify-end' onClick={() => openMenu()}>
+				<AiOutlineMenuFold className='h-8 text-orange-500 w-8' />
+			</span>
+			<h1 className='text-skin-name text-2xl flex-1 md:flex-none text-center'>Tech Talks</h1>
 			<nav className='hidden md:flex gap-12 ml-12 text-white pl-20 text-xl'>
 				{categories.map((link) => (
-					<ClientRoute key={link.id} route={link.name === 'Home' ? '/' : `categories/${link.link}`}>
-						<li
-							className={`list-none capitalize ${
-								pathname === `/categories/${link.link}` ? 'text-' : 'text-gray-300'
-							}`}>
-							{link.name}
-						</li>
+					<ClientRoute query='' key={link.id} route={link.name === 'Home' ? '/' : `categories/${link.link}`}>
+						<li className={`list-none capitalize ${pathname === `/categories/${link.link}` ? 'text-' : 'text-gray-300'}`}>{link.name}</li>
 					</ClientRoute>
 				))}
 			</nav>
-			<span className='px-8'>
-				{theme === 'light' ? (
-					<BsFillMoonFill
-						className='h-7 text-skin-name w-7 cursor-pointer'
-						onClick={() => handleTheme('light')}
-					/>
-				) : (
-					<BsSun
-						className='h-7 text-skin-name w-7 cursor-pointer'
-						onClick={() => handleTheme('dark')}
-					/>
-				)}
-			</span>
+			<span className=''>{theme === 'light' ? <BsFillMoonFill className='h-7 text-skin-name w-7 cursor-pointer' onClick={() => handleTheme('light')} /> : <BsSun className='h-7 text-skin-name w-7 cursor-pointer' onClick={() => handleTheme('dark')} />}</span>
 		</div>
 	);
 };
